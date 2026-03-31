@@ -1,0 +1,253 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --vf-dark: #0a0f0a;
+  --vf-dark-alt: #0d120d;
+  --vf-green: #2d5a3d;
+  --vf-green-light: #7bc47f;
+  --vf-green-lighter: #a8e6a3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--vf-dark);
+  color: #fff;
+  line-height: 1.7;
+  font-weight: 200;
+  font-size: 1.2rem;
+}
+
+/* Boost text sizes by 20% */
+.lead {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+.small, small {
+  font-size: 1rem;
+}
+
+.h4, h4 {
+  font-size: 1.5rem;
+}
+
+.h5, h5 {
+  font-size: 1.25rem;
+}
+
+/* Override Bootstrap dark theme */
+.bg-dark-custom {
+  background-color: var(--vf-dark) !important;
+}
+
+.bg-dark-alt {
+  background-color: #111811 !important;
+}
+
+/* External link icon */
+.external-link-icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 6px;
+  opacity: 0.7;
+}
+
+/* SVG workflow diagrams */
+.workflow-svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.workflow-svg text {
+  font-family: inherit;
+}
+
+/* Icon containers */
+.icon-container {
+  width: 72px;
+  height: 72px;
+  background: rgba(45, 90, 61, 0.3);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.icon-container svg {
+  width: 36px;
+  height: 36px;
+  color: var(--vf-green-lighter);
+}
+
+.icon-container-lg {
+  width: 88px;
+  height: 88px;
+  background: rgba(45, 90, 61, 0.3);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.icon-container-lg svg {
+  width: 44px;
+  height: 44px;
+  color: var(--vf-green-lighter);
+}
+
+.icon-container-sm {
+  width: 48px;
+  height: 48px;
+  background: rgba(45, 90, 61, 0.3);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-container-sm svg {
+  width: 24px;
+  height: 24px;
+  color: var(--vf-green-lighter);
+}
+
+/* Demo icons - no background, just the icon */
+.demo-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+/* Video background */
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.video-bg video {
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  object-position: top left;
+  transform: translate(-2%, -2%);
+}
+
+.video-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 15, 10, 0.7);
+}
+
+/* Typography */
+.text-gradient {
+  background: linear-gradient(135deg, var(--vf-green-light), var(--vf-green-lighter));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-green {
+  color: var(--vf-green-lighter) !important;
+}
+
+.text-muted-custom {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Cards */
+.card-dark {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.card-accent {
+  background: rgba(45, 90, 61, 0.2);
+  border: 1px solid rgba(45, 90, 61, 0.4);
+  border-radius: 12px;
+}
+
+/* Hero section */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Section spacing */
+.section-padding {
+  padding: 100px 0;
+}
+
+/* Navigation overrides */
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #fff;
+}
+
+/* Footer */
+.footer-dark {
+  background: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-dark a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-dark a:hover {
+  color: #fff;
+}
+
+/* Feature numbers */
+.feature-number {
+  width: 48px;
+  height: 48px;
+  background: rgba(45, 90, 61, 0.5);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--vf-green-lighter);
+}
