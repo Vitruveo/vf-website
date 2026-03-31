@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -15,7 +16,7 @@ export default function Header() {
   return (
     <nav
       className={`navbar navbar-expand-md navbar-dark fixed-top ${
-        scrolled ? 'bg-black' : 'bg-transparent'
+        scrolled || menuOpen ? 'bg-black' : 'bg-transparent'
       }`}
       style={{ transition: 'background 0.3s' }}
     >
@@ -31,15 +32,16 @@ export default function Header() {
           />
         </a>
         <button
-          className="navbar-toggler"
+          className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-expanded={menuOpen}
+          aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul className="navbar-nav">
+        <div className={`navbar-collapse justify-content-end ${menuOpen ? 'show' : 'collapse'}`} id="navbarNav">
+          <ul className="navbar-nav" onClick={() => setMenuOpen(false)}>
             <li className="nav-item">
               <a className="nav-link" href="/#about">About</a>
             </li>
