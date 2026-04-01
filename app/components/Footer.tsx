@@ -15,7 +15,7 @@ export default function Footer() {
             />
           </div>
           <div className="col-md-6 text-center text-md-end">
-            <a href="https://polyradar.ai" target="_blank" rel="noopener noreferrer" className="me-4">
+            <a href="https://polyradar.fyi" target="_blank" rel="noopener noreferrer" className="me-4">
               PolyRadar
             </a>
             <a href="#technology" className="me-4">

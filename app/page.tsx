@@ -334,7 +334,7 @@ export default function Home() {
                 </a>
               </div>
               <div className="col-lg-3 col-md-6">
-                <a href="https://polyradar.ai" target="_blank" rel="noopener noreferrer" className="text-decoration-none">
+                <a href="https://polyradar.fyi" target="_blank" rel="noopener noreferrer" className="text-decoration-none">
                   <div className="card-dark p-4 h-100">
                     <div className="icon-container">
                       <TrendingIcon />
@@ -466,7 +466,7 @@ export default function Home() {
             </div>
 
             <div className="text-center">
-              <a href="https://polyradar.ai" target="_blank" rel="noopener noreferrer"
+              <a href="https://polyradar.fyi" target="_blank" rel="noopener noreferrer"
                  className="btn btn-outline-light btn-lg px-5">
                 Launch PolyRadar<ExternalLinkIcon />
               </a>
