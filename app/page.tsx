@@ -365,7 +365,7 @@ export default function Home() {
             <div className="text-center mb-5">
               <h2 className="display-5 fw-bold mb-3">The HOST Protocol</h2>
               <p className="lead text-muted-custom">
-                HTTP Outbound Service Triggers — our answer to the blockchain isolation problem.
+                Webhooks for Web3. The first protocol-level outbound trigger in any EVM chain.
               </p>
             </div>
 

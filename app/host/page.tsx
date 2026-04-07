@@ -149,8 +149,8 @@ export default function HostPage() {
                 <span className="text-gradient">HOST</span> Protocol
               </h1>
               <p className="lead text-muted-custom" style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.4rem' }}>
-                The first protocol-level outbound trigger in any EVM chain. Smart contracts
-                that speak to the outside world — with cryptographic proof.
+                Webhooks for Web3. The first protocol-level outbound trigger in any EVM chain.
+                Smart contracts that speak to the outside world — with cryptographic proof.
               </p>
               <p className="text-white-50 mt-3">HTTP Outbound Service Trigger</p>
             </div>
