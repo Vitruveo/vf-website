@@ -295,17 +295,16 @@ export default function Home() {
             <div className="row align-items-center mb-5">
               <div className="col-lg-6 mb-4 mb-lg-0">
                 <p className="lead text-muted-custom" style={{ fontSize: '1.25rem', lineHeight: '1.8' }}>
-                  We build at every layer of the stack — from custom EVM precompiles that perform
-                  statistical analysis at machine-code speed, to the HOST protocol that lets smart
-                  contracts interact with external services, to end-user products like PolyRadar
-                  and Vibe Legal that put these capabilities to work.
+                  We build at every layer of the stack — from the HOST protocol that lets smart
+                  contracts interact with external services via validator-signed HTTP requests,
+                  to the Pretrend protocol that brings native statistical computation to the EVM.
                 </p>
               </div>
               <div className="col-lg-6">
                 <p className="lead text-muted-custom" style={{ fontSize: '1.25rem', lineHeight: '1.8' }}>
-                  Our approach is product-driven. Rather than surviving on token sales, we build
-                  revenue-generating products we call &quot;Verticals&quot; that fund operations while
-                  demonstrating what our technology can do. Real utility driving real value.
+                  Both protocols are built natively into the VTRU blockchain — not as smart contracts,
+                  but as precompiled operations that execute at machine-code speed with negligible
+                  gas costs. This is infrastructure that other chains simply don&apos;t have.
                 </p>
               </div>
             </div>
@@ -317,61 +316,41 @@ export default function Home() {
           <div className="container">
             <h2 className="display-5 fw-bold text-center mb-5">What We Build</h2>
 
-            <div className="row g-4">
-              <div className="col-lg-3 col-md-6">
-                <a href="/#technology" className="text-decoration-none">
+            <div className="row g-4 justify-content-center">
+              <div className="col-lg-5 col-md-6">
+                <a href="/host" className="text-decoration-none">
                   <div className="card-dark p-4 h-100">
                     <div className="icon-container">
                       <ProtocolIcon />
                     </div>
                     <h3 className="h4 text-green mb-3">HOST Protocol</h3>
+                    <p className="text-muted-custom mb-3">
+                      The first protocol-level outbound trigger in any EVM chain. Smart contracts
+                      can execute HTTP webhooks during transaction execution, with validator
+                      signatures providing provable authenticity.
+                    </p>
                     <p className="text-muted-custom mb-0">
-                      HTTP Outbound Service Triggers — smart contracts that can call APIs,
-                      trigger webhooks, and interact with AI services. Validator-signed
-                      cryptographic chain of custody.
+                      Three-layer security model. ECDH encryption. Cryptographic chain of custody.
+                      The bridge between Web3 and Web2 that the industry has been missing.
                     </p>
                   </div>
                 </a>
               </div>
-              <div className="col-lg-3 col-md-6">
-                <a href="https://polyradar.fyi" target="_blank" rel="noopener noreferrer" className="text-decoration-none">
-                  <div className="card-dark p-4 h-100">
-                    <div className="icon-container">
-                      <TrendingIcon />
-                    </div>
-                    <h3 className="h4 text-green mb-3">PolyRadar</h3>
-                    <p className="text-muted-custom mb-0">
-                      AI-powered research for Polymarket&apos;s 5-minute crypto markets. Second-by-second
-                      data analysis across thousands of resolved trading windows.
-                    </p>
-                  </div>
-                </a>
-              </div>
-              <div className="col-lg-3 col-md-6">
+              <div className="col-lg-5 col-md-6">
                 <a href="/pretrend" className="text-decoration-none">
                   <div className="card-dark p-4 h-100">
                     <div className="icon-container">
                       <CalculatorIcon />
                     </div>
-                    <h3 className="h4 text-green mb-3">Pretrend</h3>
-                    <p className="text-muted-custom mb-0">
+                    <h3 className="h4 text-green mb-3">Pretrend Protocol</h3>
+                    <p className="text-muted-custom mb-3">
                       Trend-based oracle protocol for prediction markets. Native on-chain
-                      statistical computation via EVM precompile — OLS regression at
-                      machine-code speed.
+                      statistical computation via EVM precompile — OLS regression, volatility
+                      analysis, and distribution modeling at machine-code speed.
                     </p>
-                  </div>
-                </a>
-              </div>
-              <div className="col-lg-3 col-md-6">
-                <a href="/#vibe" className="text-decoration-none">
-                  <div className="card-dark p-4 h-100">
-                    <div className="icon-container">
-                      <ShieldIcon />
-                    </div>
-                    <h3 className="h4 text-green mb-3">Vibe Legal</h3>
                     <p className="text-muted-custom mb-0">
-                      AI-generated smart contracts paired with legally enforceable agreements.
-                      Transaction as signature — court-admissible proof on-chain.
+                      Five outcome buckets. Bonding curve pricing. Cross-chain resolution via HOST.
+                      Prediction markets that capture direction and magnitude, not just binary outcomes.
                     </p>
                   </div>
                 </a>
@@ -419,56 +398,14 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="card-dark p-4 p-lg-5">
+            <div className="card-dark p-4 p-lg-5 mb-5">
               <h3 className="h5 text-center mb-4">Chain of Custody</h3>
               <ChainOfCustodySVG />
             </div>
-          </div>
-        </section>
-
-        {/* PolyRadar */}
-        <section id="polyradar" className="section-padding bg-dark-alt">
-          <div className="container">
-            <div className="text-center mb-5">
-              <h2 className="display-5 fw-bold mb-3">PolyRadar</h2>
-              <p className="lead text-muted-custom">
-                AI-powered research for Polymarket&apos;s 5-minute cryptocurrency markets.
-              </p>
-            </div>
-
-            <div className="row mb-5">
-              <div className="col-lg-6 mb-4 mb-lg-0">
-                <h3 className="h4 text-green mb-4">Data, Not Guesswork</h3>
-                <p className="text-muted-custom mb-3">
-                  288 trading windows open every day on Polymarket for BTC and ETH. Most traders
-                  rely on gut feeling. PolyRadar transforms that into data-informed decisions by
-                  analyzing thousands of resolved windows across different times, streak patterns,
-                  and price movements.
-                </p>
-                <p className="text-muted-custom">
-                  Ask natural language questions and get answers grounded in actual market data — win
-                  rates, price curves, entry timing, and risk metrics within a single conversation.
-                </p>
-              </div>
-              <div className="col-lg-6">
-                <h3 className="h4 text-green mb-4">Second-by-Second Precision</h3>
-                <p className="text-muted-custom mb-3">
-                  Every 5-minute trading window is recorded with granular precision: Chainlink oracle
-                  prices, Binance spot prices, token prices, price deltas, and final outcomes. PolyRadar
-                  tracks the delta between Chainlink (which determines market resolution) and Binance
-                  (which drives real-time sentiment).
-                </p>
-                <p className="text-muted-custom">
-                  <strong>Coming soon:</strong> Real-time alerts for strategy-matching conditions,
-                  including timing biases and live confidence signals.
-                </p>
-              </div>
-            </div>
 
             <div className="text-center">
-              <a href="https://polyradar.fyi" target="_blank" rel="noopener noreferrer"
-                 className="btn btn-outline-light btn-lg px-5">
-                Launch PolyRadar<ExternalLinkIcon />
+              <a href="/host" className="btn btn-outline-light btn-lg px-5">
+                Read the Full HOST Specification &rarr;
               </a>
             </div>
           </div>
@@ -518,54 +455,6 @@ export default function Home() {
               <a href="/pretrend" className="btn btn-outline-light btn-lg px-5">
                 Read the Full Protocol Specification &rarr;
               </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Vibe Legal */}
-        <section id="vibe" className="section-padding bg-dark-alt">
-          <div className="container">
-            <div className="text-center mb-5">
-              <h2 className="display-5 fw-bold mb-3">Vibe Legal</h2>
-              <p className="lead text-muted-custom">
-                AI-powered contract generation that produces legally enforceable
-                agreements backed by smart contract execution.
-              </p>
-            </div>
-
-            <div className="row mb-5">
-              <div className="col-lg-6 mb-4 mb-lg-0">
-                <h3 className="h4 text-green mb-4">The Problem with Contracts</h3>
-                <p className="text-muted-custom mb-3">
-                  Smart contracts execute code flawlessly, but they mean nothing in a courtroom.
-                  Traditional legal agreements are enforceable but require manual execution and
-                  trust between parties. Neither works for the modern economy of gig work,
-                  revenue shares, and digital asset transactions.
-                </p>
-                <p className="text-muted-custom">
-                  You can have a perfect escrow contract on-chain, but if something goes wrong,
-                  what do you show a judge? Code? That&apos;s not how civil law works.
-                </p>
-              </div>
-              <div className="col-lg-6">
-                <h3 className="h4 text-green mb-4">How Vibe Legal Works</h3>
-                <p className="text-muted-custom mb-3">
-                  Describe what you need in plain language. The AI generates both a smart contract
-                  and a corresponding legal agreement — a complete full-stack application
-                  purpose-built for your specific transaction.
-                </p>
-                <p className="text-muted-custom">
-                  When parties fund the contract, they&apos;re signing the agreement. The transaction
-                  itself is the signature. HOST triggers an AI workflow that generates PDF
-                  documentation with embedded Validator signature and EVM addresses — court-admissible
-                  proof of the agreement and its terms.
-                </p>
-              </div>
-            </div>
-
-            <div className="card-dark p-4 p-lg-5">
-              <h3 className="h5 text-center mb-4">The Innovation: Transaction as Signature</h3>
-              <TransactionAsSignatureSVG />
             </div>
           </div>
         </section>

@@ -46,7 +46,7 @@ export default function Header() {
               <a className="nav-link" href="/#about">About</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/#technology">Technology</a>
+              <a className="nav-link" href="/host">HOST</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/pretrend">Pretrend</a>
