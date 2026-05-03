@@ -302,7 +302,7 @@ export default function Home() {
               </div>
               <div className="col-lg-6">
                 <p className="lead text-muted-custom" style={{ fontSize: '1.25rem', lineHeight: '1.8' }}>
-                  Both protocols are built natively into the VTRU blockchain — not as smart contracts,
+                  Both protocols are built natively into the Vitruveo blockchain — not as smart contracts,
                   but as precompiled operations that execute at machine-code speed with negligible
                   gas costs. This is infrastructure that other chains simply don&apos;t have.
                 </p>
@@ -386,7 +386,7 @@ export default function Home() {
               <div className="col-lg-6">
                 <h3 className="h4 text-green mb-4">The Solution</h3>
                 <p className="text-muted-custom mb-3">
-                  HOST gives smart contracts a voice. When a contract executes on the VTRU blockchain,
+                  HOST gives smart contracts a voice. When a contract executes on the Vitruveo blockchain,
                   it can make HTTP requests directly — calling APIs, triggering webhooks, pushing data
                   to any web service. No oracles. No middleware. No third-party dependencies.
                 </p>
@@ -441,11 +441,11 @@ export default function Home() {
                 <p className="text-muted-custom mb-3">
                   Solidity can&apos;t handle iterative statistical analysis — gas costs are prohibitive
                   and there&apos;s no floating-point support. Pretrend runs as a native precompiled
-                  contract on the VTRU blockchain, executing OLS regression and volatility
+                  contract on the Vitruveo blockchain, executing OLS regression and volatility
                   analysis at compiled machine-code speed.
                 </p>
                 <p className="text-muted-custom">
-                  The Oracle on VTRU pushes resolution cross-chain via HOST to marketplace
+                  The Oracle on Vitruveo pushes resolution cross-chain via HOST to marketplace
                   contracts on BSC and other EVM chains.
                 </p>
               </div>

@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 
 export const metadata: Metadata = {
   title: "Pretrend Protocol | Vertical Foundation",
-  description: "Pretrend is a trend-based oracle protocol enabling prediction markets to resolve based on directional movement rather than binary outcomes. Native on-chain statistical computation on the VTRU blockchain.",
+  description: "Pretrend is a trend-based oracle protocol enabling prediction markets to resolve based on directional movement rather than binary outcomes. Native on-chain statistical computation on the Vitruveo blockchain.",
 };
 
 const TrendLineSVG = () => (
@@ -205,7 +205,7 @@ export default function PretrendPage() {
           <div className="container">
             <h2 className="display-6 fw-bold text-center mb-3">System Architecture</h2>
             <p className="text-muted-custom text-center mb-5" style={{ maxWidth: '700px', margin: '0 auto' }}>
-              Three primary components working together: the VTRU Oracle, the Notary Service,
+              Three primary components working together: the Vitruveo Oracle, the Notary Service,
               and the Marketplace Layer.
             </p>
 
@@ -213,12 +213,12 @@ export default function PretrendPage() {
               {[
                 {
                   title: 'Oracle Contract',
-                  location: 'VTRU Blockchain',
+                  location: 'Vitruveo Blockchain',
                   desc: 'Stores market state, bucket thresholds, trend results, and fee accounting. Does not compute trends directly — stores results submitted by the authorized Notary.',
                 },
                 {
                   title: 'Trend Precompile',
-                  location: 'VTRU Blockchain (native)',
+                  location: 'Vitruveo Blockchain (native)',
                   desc: 'Computes OLS regression, R-squared, volatility, and bucket quintiles at compiled machine-code speed. What would be impossible in Solidity executes in microseconds.',
                 },
                 {
@@ -233,7 +233,7 @@ export default function PretrendPage() {
                 },
                 {
                   title: 'HOST Bridge',
-                  location: 'VTRU to external chains',
+                  location: 'Vitruveo to external chains',
                   desc: 'Pushes resolution data cross-chain via HTTP Outbound Service Trigger. Validator-signed payloads ensure cryptographic proof of resolution.',
                 },
               ].map((component) => (
@@ -254,7 +254,7 @@ export default function PretrendPage() {
           <div className="container">
             <h2 className="display-6 fw-bold text-center mb-3">Trend Precompile</h2>
             <p className="text-muted-custom text-center mb-5" style={{ maxWidth: '700px', margin: '0 auto' }}>
-              A native precompiled contract on the VTRU blockchain that performs statistical
+              A native precompiled contract on the Vitruveo blockchain that performs statistical
               computation at the Geth client layer — compiled Go code, not interpreted EVM bytecode.
             </p>
 
@@ -497,7 +497,7 @@ export default function PretrendPage() {
                     {
                       phase: 'Phase 1',
                       title: 'Core Infrastructure',
-                      items: 'Oracle + Notary on VTRU testnet, Marketplace on BSC testnet, HOST bridge, initial data sources (BTC, ETH)',
+                      items: 'Oracle + Notary on Vitruveo testnet, Marketplace on BSC testnet, HOST bridge, initial data sources (BTC, ETH)',
                     },
                     {
                       phase: 'Phase 2',

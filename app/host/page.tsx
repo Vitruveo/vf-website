@@ -199,7 +199,7 @@ export default function HostPage() {
                 <p className="text-muted-custom">
                   This isn&apos;t a workaround or a middleware layer. HOST is a native precompile
                   at address <code className="text-green">0x...0099</code>, built directly into
-                  the VTRU blockchain&apos;s execution layer.
+                  the Vitruveo blockchain&apos;s execution layer.
                 </p>
               </div>
             </div>
