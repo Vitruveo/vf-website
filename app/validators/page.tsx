@@ -186,6 +186,66 @@ export default function ValidatorsPage() {
             </div>
           </div>
         </section>
+
+        {/* Legacy Validators */}
+        <section id="legacy" className="section-padding bg-dark-custom">
+          <div className="container">
+            <div className="text-center mb-5">
+              <h2 className="display-6 fw-bold mb-3">Legacy Validators</h2>
+              <p className="text-muted-custom" style={{ maxWidth: '760px', margin: '0 auto' }}>
+                While we can&apos;t accommodate every Legacy Validator on the re-imagined Vitruveo
+                blockchain, we&apos;re grateful for your support and want to keep you in the ecosystem.
+                Every Legacy Validator can go to{' '}
+                <a href="https://scope.vitruveo.ai/legacy" target="_blank" rel="noopener noreferrer" className="text-green">scope.vitruveo.ai/legacy</a>{' '}
+                starting June 28, 2026 and claim two valuable rewards through September 30, 2026.
+              </p>
+            </div>
+
+            <div className="row g-4 justify-content-center mb-5">
+              <div className="col-lg-5 col-md-6">
+                <div className="card-dark p-4 p-lg-5 h-100 text-center">
+                  <div className="small text-green fw-semibold mb-2" style={{ letterSpacing: '0.08em' }}>REWARD 1</div>
+                  <div className="display-5 fw-bold text-white mb-4">10,000 VTRU</div>
+                  <div className="d-flex flex-column gap-2 text-start">
+                    <div className="d-flex justify-content-between p-3 rounded" style={{ background: 'rgba(0,0,0,0.25)' }}>
+                      <span className="text-muted-custom">Unlocked now</span>
+                      <span className="text-green fw-bold">1,000</span>
+                    </div>
+                    <div className="d-flex justify-content-between p-3 rounded" style={{ background: 'rgba(0,0,0,0.25)' }}>
+                      <span className="text-muted-custom">Locked for 1 year</span>
+                      <span className="text-white fw-bold">4,500</span>
+                    </div>
+                    <div className="d-flex justify-content-between p-3 rounded" style={{ background: 'rgba(0,0,0,0.25)' }}>
+                      <span className="text-muted-custom">Locked for 2 years</span>
+                      <span className="text-white fw-bold">4,500</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-5 col-md-6">
+                <div className="card-dark p-4 p-lg-5 h-100 text-center">
+                  <div className="small text-green fw-semibold mb-2" style={{ letterSpacing: '0.08em' }}>REWARD 2</div>
+                  <div className="display-5 fw-bold text-white mb-2">VIP NFT</div>
+                  <p className="text-green mb-4">
+                    <strong>V</strong>itruveo <strong>I</strong>nspired <strong>P</strong>retrend
+                  </p>
+                  <p className="text-muted-custom mb-0">
+                    Pro-rata ownership of a{' '}
+                    <span className="text-green fw-semibold">3.6% validator-pool allocation</span>{' '}
+                    of future Pretrend tokens.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <a href="https://scope.vitruveo.ai/legacy" target="_blank" rel="noopener noreferrer" className="btn btn-green btn-lg px-5">
+                Claim Your Rewards
+              </a>
+              <p className="text-white-50 small mt-3 mb-0">Claim window: June 28 – September 30, 2026.</p>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

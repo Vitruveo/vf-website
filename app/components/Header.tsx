@@ -49,7 +49,7 @@ export default function Header() {
               <a className="nav-link" href="/pretrend">Pretrend</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/validators">Validator Onboarding</a>
+              <a className="nav-link" href="/validators">Validators</a>
             </li>
           </ul>
         </div>
