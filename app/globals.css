@@ -199,6 +199,21 @@ p {
   border-radius: 12px;
 }
 
+/* Prominent CTA button */
+.btn-green {
+  background-color: var(--vf-green-light);
+  border: 1px solid var(--vf-green-light);
+  color: #0a0f0a;
+  font-weight: 600;
+}
+
+.btn-green:hover,
+.btn-green:focus {
+  background-color: var(--vf-green-lighter);
+  border-color: var(--vf-green-lighter);
+  color: #0a0f0a;
+}
+
 /* Hero section */
 .hero-section {
   min-height: 100vh;

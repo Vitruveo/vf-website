@@ -129,6 +129,13 @@ const PlayIcon = () => (
   </svg>
 );
 
+const CoinIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M8 9l4 7 4-7"/>
+  </svg>
+);
+
 // HOST Demo Icons
 const BellIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="1.5">
@@ -289,123 +296,82 @@ export default function Home() {
       <main>
         <Hero />
 
-        {/* About Vertical Foundation */}
-        <section id="about" className="section-padding bg-dark-custom">
-          <div className="container">
-            <div className="row align-items-center mb-5">
-              <div className="col-lg-6 mb-4 mb-lg-0">
-                <p className="lead text-muted-custom" style={{ fontSize: '1.25rem', lineHeight: '1.8' }}>
-                  We build at every layer of the stack — from the HOST protocol that lets smart
-                  contracts interact with external services via validator-signed HTTP requests,
-                  to the Pretrend protocol that brings native statistical computation to the EVM.
-                </p>
-              </div>
-              <div className="col-lg-6">
-                <p className="lead text-muted-custom" style={{ fontSize: '1.25rem', lineHeight: '1.8' }}>
-                  Both protocols are built natively into the Vitruveo blockchain — not as smart contracts,
-                  but as precompiled operations that execute at machine-code speed with negligible
-                  gas costs. This is infrastructure that other chains simply don&apos;t have.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* What We Build */}
-        <section className="section-padding bg-dark-alt">
-          <div className="container">
-            <h2 className="display-5 fw-bold text-center mb-5">What We Build</h2>
-
-            <div className="row g-4 justify-content-center">
-              <div className="col-lg-5 col-md-6">
-                <a href="/host" className="text-decoration-none">
-                  <div className="card-dark p-4 h-100">
-                    <div className="icon-container">
-                      <ProtocolIcon />
-                    </div>
-                    <h3 className="h4 text-green mb-3">HOST Protocol</h3>
-                    <p className="text-muted-custom mb-3">
-                      The first protocol-level outbound trigger in any EVM chain. Smart contracts
-                      can execute HTTP webhooks during transaction execution, with validator
-                      signatures providing provable authenticity.
-                    </p>
-                    <p className="text-muted-custom mb-0">
-                      Three-layer security model. ECDH encryption. Cryptographic chain of custody.
-                      The bridge between Web3 and Web2 that the industry has been missing.
-                    </p>
-                  </div>
-                </a>
-              </div>
-              <div className="col-lg-5 col-md-6">
-                <a href="/pretrend" className="text-decoration-none">
-                  <div className="card-dark p-4 h-100">
-                    <div className="icon-container">
-                      <CalculatorIcon />
-                    </div>
-                    <h3 className="h4 text-green mb-3">Pretrend Protocol</h3>
-                    <p className="text-muted-custom mb-3">
-                      Trend-based oracle protocol for prediction markets. Native on-chain
-                      statistical computation via EVM precompile — OLS regression, volatility
-                      analysis, and distribution modeling at machine-code speed.
-                    </p>
-                    <p className="text-muted-custom mb-0">
-                      Five outcome buckets. Bonding curve pricing. Cross-chain resolution via HOST.
-                      Prediction markets that capture direction and magnitude, not just binary outcomes.
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* HOST Protocol */}
-        <section id="technology" className="section-padding bg-dark-custom">
+        {/* Six Foundation Pillars */}
+        <section id="pillars" className="section-padding bg-dark-custom">
           <div className="container">
             <div className="text-center mb-5">
-              <h2 className="display-5 fw-bold mb-3">The HOST Protocol</h2>
+              <h2 className="display-5 fw-bold mb-3">Six Foundation Pillars</h2>
+              <p className="lead text-muted-custom" style={{ maxWidth: '760px', margin: '0 auto' }}>
+                As the governing body behind Vitruveo, Vertical Foundation carries the
+                protocol&apos;s development, treasury, and long-term growth — organized across
+                six foundational pillars. Select one to explore.
+              </p>
+            </div>
+
+            <div className="row g-4">
+              {[
+                { id: 'vtru', name: 'VTRU', Icon: CoinIcon, blurb: 'The native cryptocurrency of Vitruveo — the asset every other pillar is built to strengthen.' },
+                { id: 'pretrend', name: 'Pretrend', Icon: TrendingIcon, blurb: 'On-chain trend resolution for prediction markets, powered by native statistical computation.' },
+                { id: 'vibe', name: 'VIBE', Icon: SaleIcon, blurb: 'The Vitruveo Income Building Engine — on-chain revenue-sharing back to the community.' },
+                { id: 'scope', name: 'Scope', Icon: UtilitiesIcon, blurb: 'The app that lets you manage all of your Vitruveo assets in one place.' },
+                { id: 'protocol', name: 'Protocol', Icon: ProtocolIcon, blurb: 'Developer power built into the chain: HOST webhooks, protocol smart contracts, and AI.' },
+                { id: 'validators', name: 'Validators', Icon: ShieldIcon, blurb: 'We run the protocol network and oversee validator onboarding, health, and success.' },
+              ].map(({ id, name, Icon, blurb }) => (
+                <div key={id} className="col-lg-4 col-md-6">
+                  <a href={`#${id}`} className="text-decoration-none">
+                    <div className="card-dark p-4 h-100 text-center">
+                      <div className="icon-container mx-auto">
+                        <Icon />
+                      </div>
+                      <h3 className="h4 text-green mb-2">{name}</h3>
+                      <p className="text-muted-custom mb-0">{blurb}</p>
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* VTRU */}
+        <section id="vtru" className="section-padding bg-dark-alt">
+          <div className="container">
+            <div className="text-center mb-5">
+              <h2 className="display-5 fw-bold mb-3">VTRU</h2>
               <p className="lead text-muted-custom">
-                Webhooks for Web3. The first protocol-level outbound trigger in any EVM chain.
+                The native cryptocurrency of Vitruveo.
               </p>
             </div>
 
             <div className="row mb-5">
               <div className="col-lg-6 mb-4 mb-lg-0">
-                <h3 className="h4 text-green mb-4">The Problem</h3>
+                <h3 className="h4 text-green mb-4">The Center of Gravity</h3>
                 <p className="text-muted-custom mb-3">
-                  Smart contracts are isolated by design. They can receive transactions and emit
-                  logs, but they cannot reach out to the outside world. They can&apos;t call an API.
-                  They can&apos;t send a webhook. They can&apos;t even ping a server.
+                  VTRU pays for gas, secures the validator network, and settles every transaction
+                  on the chain. It is the asset at the center of the ecosystem.
                 </p>
                 <p className="text-muted-custom">
-                  This forces developers to build elaborate workarounds — oracle networks, middleware
-                  services, fragile bridges. For enterprise adoption, this is a dealbreaker. Businesses
-                  need provable chains of custody, not duct tape.
+                  Every other pillar — the Protocol, the Bridge, Scope, and VIBE — exists to make
+                  VTRU more useful and more valuable to the people who hold it.
                 </p>
               </div>
               <div className="col-lg-6">
-                <h3 className="h4 text-green mb-4">The Solution</h3>
+                <h3 className="h4 text-green mb-4">Value and Liquidity</h3>
                 <p className="text-muted-custom mb-3">
-                  HOST gives smart contracts a voice. When a contract executes on the Vitruveo blockchain,
-                  it can make HTTP requests directly — calling APIs, triggering webhooks, pushing data
-                  to any web service. No oracles. No middleware. No third-party dependencies.
+                  Our mandate is straightforward: VTRU has to succeed. We focus relentlessly on
+                  growing its real utility and, when the opportunity is there, deepening its
+                  liquidity so holders can move with confidence.
                 </p>
                 <p className="text-muted-custom">
-                  Every outbound request is signed by the validator that processed the transaction,
-                  creating a cryptographic chain of custody — immutable, validator-attested proof
-                  that a specific on-chain event triggered a specific off-chain action.
+                  VTRU can also be bridged to BNB Smart Chain, where it trades against USDT on
+                  PancakeSwap — opening the ecosystem to liquidity far beyond its own chain.
                 </p>
               </div>
             </div>
 
-            <div className="card-dark p-4 p-lg-5 mb-5">
-              <h3 className="h5 text-center mb-4">Chain of Custody</h3>
-              <ChainOfCustodySVG />
-            </div>
-
             <div className="text-center">
-              <a href="/host" className="btn btn-outline-light btn-lg px-5">
-                Read the Full HOST Specification &rarr;
+              <a href="https://pancakeswap.finance/swap?inputCurrency=0xb08504D245713Ca9692C8fA605E76A0A11Ed4955&outputCurrency=0x55d398326f99059fF775485246999027B3197955&chain=bsc" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-lg px-5">
+                Trade VTRU on PancakeSwap <ExternalLinkIcon />
               </a>
             </div>
           </div>
@@ -453,8 +419,236 @@ export default function Home() {
 
             <div className="text-center">
               <a href="/pretrend" className="btn btn-outline-light btn-lg px-5">
-                Read the Full Protocol Specification &rarr;
+                Explore Pretrend &rarr;
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* VIBE */}
+        <section id="vibe" className="section-padding bg-dark-alt">
+          <div className="container">
+            <div className="text-center mb-5">
+              <h2 className="display-5 fw-bold mb-3">VIBE</h2>
+              <p className="lead text-muted-custom">
+                The Vitruveo Income Building Engine.
+              </p>
+            </div>
+
+            <div className="row mb-5">
+              <div className="col-lg-6 mb-4 mb-lg-0">
+                <h3 className="h4 text-green mb-4">Income, On-Chain</h3>
+                <p className="text-muted-custom mb-3">
+                  VIBE is an on-chain revenue-sharing program that lets participants earn a share
+                  of ecosystem income. It turns real activity on Vitruveo into recurring,
+                  transparent distributions — settled on-chain, visible to everyone.
+                </p>
+                <p className="text-muted-custom">
+                  Rather than rely on token emissions, VIBE channels the value the ecosystem
+                  actually generates back to the people invested in its success.
+                </p>
+              </div>
+              <div className="col-lg-6">
+                <h3 className="h4 text-green mb-4">Aligned with VTRU</h3>
+                <p className="text-muted-custom mb-3">
+                  VIBE is one more way value created across the pillars flows back to VTRU holders,
+                  reinforcing the asset at the center of the ecosystem.
+                </p>
+                <p className="text-muted-custom">
+                  As ecosystem activity grows, so does the income that flows through the engine —
+                  aligning the Foundation, builders, and the community around the same outcome.
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <a href="https://scope.vitruveo.ai/vibe" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-lg px-5">
+                Open VIBE <ExternalLinkIcon />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Scope */}
+        <section id="scope" className="section-padding bg-dark-custom">
+          <div className="container">
+            <div className="text-center mb-5">
+              <h2 className="display-5 fw-bold mb-3">Scope</h2>
+              <p className="lead text-muted-custom">
+                Manage all of your Vitruveo assets in one place.
+              </p>
+            </div>
+
+            <div className="row justify-content-center mb-5">
+              <div className="col-lg-8 text-center">
+                <p className="text-muted-custom mb-3">
+                  Scope is the ecosystem&apos;s home base — a single app for viewing, organizing,
+                  and managing everything you hold on Vitruveo. Tokens, collectibles, and on-chain
+                  assets, all in one interface.
+                </p>
+                <p className="text-muted-custom mb-0">
+                  Like the rest of the stack, Scope is a first-party product built, hosted, and
+                  improved by Vertical Foundation.
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <a href="https://scope.vitruveo.ai" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-lg px-5">
+                Open Scope <ExternalLinkIcon />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Protocol */}
+        <section id="protocol" className="section-padding bg-dark-alt">
+          <div className="container">
+            <div className="text-center mb-5">
+              <h2 className="display-5 fw-bold mb-3">The Protocol</h2>
+              <p className="lead text-muted-custom" style={{ maxWidth: '760px', margin: '0 auto' }}>
+                The developer surface of Vitruveo — capabilities built into the chain itself,
+                not bolted on as middleware.
+              </p>
+            </div>
+
+            <div className="row g-4 mb-5">
+              <div className="col-lg-4">
+                <div className="card-dark p-4 h-100">
+                  <div className="icon-container">
+                    <ProtocolIcon />
+                  </div>
+                  <h3 className="h4 text-green mb-3">HOST</h3>
+                  <p className="text-muted-custom mb-0">
+                    Webhooks for Web3. The first protocol-level outbound trigger in any EVM chain.
+                    Smart contracts execute HTTP webhooks during transaction execution, each request
+                    validator-signed for provable authenticity.
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-4">
+                <div className="card-dark p-4 h-100">
+                  <div className="icon-container">
+                    <BatchIcon />
+                  </div>
+                  <h3 className="h4 text-green mb-3">Protocol Smart Contracts</h3>
+                  <p className="text-muted-custom mb-0">
+                    Core capabilities exposed as native precompiles — randomness, statistical
+                    analysis, Merkle proofs, compound-interest math, and more — executing at
+                    machine-code speed with negligible gas.
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-4">
+                <div className="card-dark p-4 h-100">
+                  <div className="icon-container">
+                    <LightbulbIcon />
+                  </div>
+                  <h3 className="h4 text-green mb-3">AI</h3>
+                  <p className="text-muted-custom mb-0">
+                    Trigger AI agents directly from smart contracts, and wire the chain into AI
+                    tooling through a dedicated MCP server built to make blockchain integration
+                    easy for AI developers.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="card-dark p-4 p-lg-5 mb-5">
+              <h3 className="h5 text-center mb-4">HOST Chain of Custody</h3>
+              <ChainOfCustodySVG />
+            </div>
+
+            <div className="text-center">
+              <a href="https://www.vitruveo.ai/developers" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-lg px-5">
+                Explore the Developer Hub <ExternalLinkIcon />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Validators */}
+        <section id="validators" className="section-padding bg-dark-custom">
+          <div className="container">
+            <div className="text-center mb-5">
+              <h2 className="display-5 fw-bold mb-3">Validators</h2>
+              <p className="lead text-muted-custom">
+                The network that secures Vitruveo — and the operators who run it.
+              </p>
+            </div>
+
+            <div className="row mb-5">
+              <div className="col-lg-6 mb-4 mb-lg-0">
+                <h3 className="h4 text-green mb-4">The Protocol Network</h3>
+                <p className="text-muted-custom mb-3">
+                  Validators process every transaction, secure consensus, and sign the outbound
+                  HOST requests that give the protocol its provable chain of custody. They are the
+                  backbone of the chain.
+                </p>
+                <p className="text-muted-custom">
+                  Vertical Foundation runs and manages this network, responsible for its health,
+                  uptime, and security around the clock.
+                </p>
+              </div>
+              <div className="col-lg-6">
+                <h3 className="h4 text-green mb-4">Onboarding and Success</h3>
+                <p className="text-muted-custom mb-3">
+                  We oversee validator onboarding — bringing new operators onto the network and
+                  giving them what they need to run reliably from day one.
+                </p>
+                <p className="text-muted-custom">
+                  Our work doesn&apos;t end there. We keep validators healthy and aligned, because a
+                  strong, well-run validator set is what makes everything else on Vitruveo possible.
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <a href="/validators" className="btn btn-outline-light btn-lg px-5">
+                Become a Validator &rarr;
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Stewardship */}
+        <section id="governance" className="section-padding bg-dark-alt">
+          <div className="container">
+            <div className="text-center mb-5">
+              <h2 className="display-5 fw-bold mb-3">Stewardship</h2>
+              <p className="lead text-muted-custom" style={{ maxWidth: '760px', margin: '0 auto' }}>
+                The pillars are what we build. Stewardship is how we govern them — transparently,
+                and for the long term.
+              </p>
+            </div>
+
+            <div className="row g-4">
+              <div className="col-lg-6">
+                <div className="card-dark p-4 h-100">
+                  <div className="icon-container">
+                    <TreasuryIcon />
+                  </div>
+                  <h3 className="h4 text-green mb-3">Treasury</h3>
+                  <p className="text-muted-custom mb-0">
+                    We steward the ecosystem treasury through a multisig wallet, funding grants,
+                    incentives, and strategic initiatives. Every allocation is deliberate, measured
+                    against one goal: making VTRU more valuable for everyone who holds it.
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="card-dark p-4 h-100">
+                  <div className="icon-container">
+                    <GovernanceIcon />
+                  </div>
+                  <h3 className="h4 text-green mb-3">Direction</h3>
+                  <p className="text-muted-custom mb-0">
+                    We set protocol direction — coordinating upgrades, weighing trade-offs, and
+                    making the decisions that shape Vitruveo. Transparent process, with long-term
+                    thinking over short-term gains.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>

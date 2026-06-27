@@ -98,6 +98,20 @@ const BondingCurveSVG = () => (
   </svg>
 );
 
+const YesMark = () => (
+  <span
+    className="d-inline-flex align-items-center justify-content-center rounded-circle"
+    style={{ width: '26px', height: '26px', background: 'rgba(123,196,127,0.15)', border: '1px solid #7bc47f' }}
+    aria-label="Yes"
+  >
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a8e6a3" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  </span>
+);
+
+const NoMark = () => <span className="text-white-50" aria-label="No">—</span>;
+
 export default function PretrendPage() {
   return (
     <>
@@ -106,7 +120,7 @@ export default function PretrendPage() {
         {/* Hero */}
         <section className="section-padding bg-dark-custom" style={{ paddingTop: '140px' }}>
           <div className="container">
-            <div className="text-center mb-5">
+            <div className="text-center">
               <h1 className="display-4 fw-bold mb-3">
                 <span className="text-gradient">Pretrend</span> Protocol
               </h1>
@@ -116,16 +130,111 @@ export default function PretrendPage() {
               </p>
               <p className="text-white-50 mt-3">Version 2.0</p>
             </div>
-            {/* Hero visualization */}
-            <div className="card-dark p-4">
-              <TrendLineSVG />
+          </div>
+        </section>
+
+        {/* Pretrend Roadmap */}
+        <section id="roadmap" className="section-padding bg-dark-alt">
+          <div className="container">
+            <div className="text-center mb-5">
+              <h2 className="display-6 fw-bold mb-3">2026 Roadmap</h2>
+              <p className="text-muted-custom" style={{ maxWidth: '700px', margin: '0 auto' }}>
+                The path to a live Pretrend oracle — quarter by quarter through 2026.
+              </p>
+            </div>
+
+            <div className="position-relative">
+              {/* connecting line (desktop) */}
+              <div
+                className="d-none d-lg-block position-absolute"
+                style={{
+                  top: '28px',
+                  left: '12.5%',
+                  right: '12.5%',
+                  height: '2px',
+                  background: 'linear-gradient(90deg, rgba(123,196,127,0.15), rgba(123,196,127,0.6), rgba(123,196,127,0.15))',
+                  zIndex: 0,
+                }}
+              />
+              <div className="row g-4">
+                {[
+                  {
+                    q: 'Q1 2026',
+                    title: 'Shanghai Upgrade & Protocol Contracts',
+                    desc: 'Upgrade Vitruveo to the Shanghai EVM and build the protocol smart contracts that Pretrend depends on.',
+                    href: 'https://explorer.vitruveo.ai',
+                    cta: 'View Explorer',
+                  },
+                  {
+                    q: 'Q2 2026',
+                    title: 'On-Chain Trend Algorithm',
+                    desc: 'Build the trend-calculation algorithm into the protocol and expose it as a protocol smart contract.',
+                    href: 'https://www.vitruveo.ai/developers/psc/trend',
+                    cta: 'Try it out',
+                  },
+                  {
+                    q: 'Q3 2026',
+                    title: 'Smart Contracts, Libraries & SDK',
+                    desc: 'Develop and deploy the smart contracts that implement the Pretrend protocol, plus the libraries and SDK developers need to build on it.',
+                    href: null,
+                    cta: null,
+                  },
+                  {
+                    q: 'Q4 2026',
+                    title: 'Oracle & Launch',
+                    desc: 'Complete development of Pretrend and launch the oracle alongside the reference site.',
+                    href: null,
+                    cta: null,
+                  },
+                ].map((item, i) => (
+                  <div key={item.q} className="col-lg-3 col-md-6">
+                    <div className="text-center mb-3" style={{ position: 'relative', zIndex: 1 }}>
+                      <div
+                        className="rounded-circle mx-auto d-flex align-items-center justify-content-center fw-bold"
+                        style={{
+                          width: '56px',
+                          height: '56px',
+                          background: 'var(--vf-dark-alt)',
+                          border: '2px solid #7bc47f',
+                          color: '#a8e6a3',
+                        }}
+                      >
+                        {i + 1}
+                      </div>
+                    </div>
+                    <div className="card-dark p-4 h-100 text-center">
+                      <div
+                        className="d-inline-block px-3 py-1 rounded-pill mb-3"
+                        style={{ background: 'rgba(123,196,127,0.12)', border: '1px solid rgba(123,196,127,0.35)' }}
+                      >
+                        <span className="text-green fw-semibold small">{item.q}</span>
+                      </div>
+                      <h3 className="h5 text-white mb-3">{item.title}</h3>
+                      <p className="text-muted-custom small mb-3">{item.desc}</p>
+                      {item.href && (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-green small text-decoration-none fw-semibold"
+                        >
+                          {item.cta} &rarr;
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         {/* Problem & Solution */}
-        <section className="section-padding bg-dark-alt">
+        <section className="section-padding bg-dark-custom">
           <div className="container">
+            <div className="card-dark p-4 mb-5">
+              <TrendLineSVG />
+            </div>
             <div className="row mb-5">
               <div className="col-lg-6 mb-4 mb-lg-0">
                 <h2 className="h3 text-green mb-4">The Problem with Binary Markets</h2>
@@ -163,6 +272,49 @@ export default function PretrendPage() {
                   growth. Earlier buyers receive more units per dollar through a bonding curve,
                   guaranteeing better returns for early conviction.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Compare & Contrast */}
+        <section className="section-padding bg-dark-alt">
+          <div className="container">
+            <h2 className="display-6 fw-bold text-center mb-3">Compare &amp; Contrast</h2>
+            <p className="text-muted-custom text-center mb-5" style={{ maxWidth: '720px', margin: '0 auto' }}>
+              How Pretrend&apos;s trend-based model stacks up against the leading prediction markets.
+            </p>
+            <div className="card-dark p-3 p-lg-4">
+              <div className="table-responsive">
+                <table className="table table-dark table-borderless align-middle mb-0">
+                  <thead>
+                    <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.12)' }}>
+                      <th style={{ width: '46%' }}>Capability</th>
+                      <th className="text-center text-green">Pretrend</th>
+                      <th className="text-center text-white-50 fw-normal">Polymarket</th>
+                      <th className="text-center text-white-50 fw-normal">Kalshi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { feature: 'Captures magnitude and direction, not just yes/no', poly: false, kalshi: false },
+                      { feature: 'Five graded outcome buckets', poly: false, kalshi: false },
+                      { feature: 'Native on-chain statistical computation', poly: false, kalshi: false },
+                      { feature: 'Bonding curve rewards early conviction', poly: false, kalshi: false },
+                      { feature: 'Any time-series data source', poly: false, kalshi: false },
+                      { feature: 'Cross-chain resolution', poly: false, kalshi: false },
+                      { feature: 'Permissionless on-chain settlement', poly: true, kalshi: false },
+                      { feature: 'White-label, embeddable markets', poly: false, kalshi: false },
+                    ].map((row) => (
+                      <tr key={row.feature} style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                        <td className="text-muted-custom">{row.feature}</td>
+                        <td className="text-center"><YesMark /></td>
+                        <td className="text-center">{row.poly ? <YesMark /> : <NoMark />}</td>
+                        <td className="text-center">{row.kalshi ? <YesMark /> : <NoMark />}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -462,67 +614,49 @@ export default function PretrendPage() {
           </div>
         </section>
 
-        {/* Security & Roadmap */}
+        {/* Security */}
         <section className="section-padding bg-dark-custom">
           <div className="container">
-            <div className="row g-5">
+            <h2 className="display-6 fw-bold text-center mb-3">Security</h2>
+            <p className="text-muted-custom text-center mb-5" style={{ maxWidth: '700px', margin: '0 auto' }}>
+              Trust-minimized by design — every result is signed, on-chain, and independently verifiable.
+            </p>
+            <div className="row g-4">
               <div className="col-lg-6">
-                <h2 className="h3 fw-bold mb-4">Security</h2>
-                <div className="card-dark p-4">
-                  <p className="text-muted-custom mb-3">
-                    <strong className="text-white">Oracle Trust Model:</strong> The Notary is a trusted component.
-                    All submissions are signed and on-chain, creating an auditable history. The trend
-                    precompile is deterministic — anyone can verify results independently.
-                  </p>
-                  <p className="text-muted-custom mb-3">
-                    <strong className="text-white">Data Integrity:</strong> OLS regression dampens outlier effects.
-                    Resolution intervals prevent flash manipulation. Multiple data points over
-                    market duration provide redundancy.
-                  </p>
-                  <p className="text-muted-custom mb-3">
-                    <strong className="text-white">Void Protection:</strong> Markets are automatically voided if they
-                    receive fewer than 80% of expected updates. Participants receive refunds minus
-                    infrastructure costs already incurred.
-                  </p>
+                <div className="card-dark p-4 h-100">
+                  <h3 className="h5 text-green mb-3">Oracle Trust Model</h3>
                   <p className="text-muted-custom mb-0">
-                    <strong className="text-white">Cross-Chain Fallback:</strong> If HOST delivery fails, marketplace
-                    contracts support manual resolution submission with Oracle signature verification.
+                    The Notary is a trusted component. All submissions are signed and on-chain,
+                    creating an auditable history. The trend precompile is deterministic — anyone
+                    can verify results independently.
                   </p>
                 </div>
               </div>
               <div className="col-lg-6">
-                <h2 className="h3 fw-bold mb-4">Roadmap</h2>
-                <div className="d-flex flex-column gap-3">
-                  {[
-                    {
-                      phase: 'Phase 1',
-                      title: 'Core Infrastructure',
-                      items: 'Oracle + Notary on Vitruveo testnet, Marketplace on BSC testnet, HOST bridge, initial data sources (BTC, ETH)',
-                    },
-                    {
-                      phase: 'Phase 2',
-                      title: 'Primary Marketplace',
-                      items: 'Mainnet deployment, marketplace web app, expanded data sources, security audit',
-                    },
-                    {
-                      phase: 'Phase 3',
-                      title: 'Ecosystem Expansion',
-                      items: 'White-label framework, open-source starter kit, additional chains, broader data catalog',
-                    },
-                    {
-                      phase: 'Phase 4',
-                      title: 'Decentralization',
-                      items: 'Decentralized notary network, staking and slashing, fraud proofs, community governance',
-                    },
-                  ].map((phase) => (
-                    <div key={phase.phase} className="card-dark p-3">
-                      <div className="d-flex align-items-center gap-2 mb-1">
-                        <span className="small text-green fw-semibold">{phase.phase}</span>
-                        <span className="small text-white fw-semibold">{phase.title}</span>
-                      </div>
-                      <p className="text-muted-custom small mb-0">{phase.items}</p>
-                    </div>
-                  ))}
+                <div className="card-dark p-4 h-100">
+                  <h3 className="h5 text-green mb-3">Data Integrity</h3>
+                  <p className="text-muted-custom mb-0">
+                    OLS regression dampens outlier effects. Resolution intervals prevent flash
+                    manipulation. Multiple data points over market duration provide redundancy.
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="card-dark p-4 h-100">
+                  <h3 className="h5 text-green mb-3">Void Protection</h3>
+                  <p className="text-muted-custom mb-0">
+                    Markets are automatically voided if they receive fewer than 80% of expected
+                    updates. Participants receive refunds minus infrastructure costs already incurred.
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="card-dark p-4 h-100">
+                  <h3 className="h5 text-green mb-3">Cross-Chain Fallback</h3>
+                  <p className="text-muted-custom mb-0">
+                    If HOST delivery fails, marketplace contracts support manual resolution
+                    submission with Oracle signature verification.
+                  </p>
                 </div>
               </div>
             </div>

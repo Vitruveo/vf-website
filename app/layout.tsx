@@ -8,12 +8,12 @@ const titillium = Titillium_Web({
 });
 
 export const metadata: Metadata = {
-  title: "Vertical Foundation | Pretrend Protocol",
-  description: "Vertical Foundation builds the Pretrend protocol — native on-chain statistical analysis for trend-aware DeFi — and products like PolyRadar and Vibe Legal on an AI-native EVM blockchain.",
-  keywords: ["Vertical Foundation", "Pretrend", "blockchain", "L1", "EVM", "AI", "HOST protocol", "PolyRadar", "Vibe Legal", "DeFi"],
+  title: "Vertical Foundation | Vitruveo Blockchain Governance",
+  description: "Vertical Foundation governs and funds the Vitruveo blockchain — an EVM-compatible L1 built for the AI era — across six pillars: VTRU, Pretrend, VIBE, Scope, Protocol, and Validators.",
+  keywords: ["Vertical Foundation", "Vitruveo", "governance", "blockchain", "L1", "EVM", "VTRU", "Pretrend", "VIBE", "HOST protocol", "Scope", "Validators", "AI"],
   openGraph: {
-    title: "Vertical Foundation | Pretrend Protocol",
-    description: "Vertical Foundation builds the Pretrend protocol and AI-native blockchain products.",
+    title: "Vertical Foundation | Vitruveo Blockchain Governance",
+    description: "The foundation governing and funding the Vitruveo ecosystem across six foundational pillars.",
     type: "website",
   },
   icons: {

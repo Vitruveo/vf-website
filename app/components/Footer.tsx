@@ -15,11 +15,11 @@ export default function Footer() {
             />
           </div>
           <div className="col-md-6 text-center text-md-end">
-            <a href="/host" className="me-4">
-              HOST
-            </a>
             <a href="/pretrend" className="me-4">
               Pretrend
+            </a>
+            <a href="/validators" className="me-4">
+              Validators
             </a>
             <a href="mailto:info@verticalfoundation.net">
               Contact

@@ -1,0 +1,168 @@
+import type { Metadata } from "next";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+export const metadata: Metadata = {
+  title: "Validators | Vertical Foundation",
+  description: "Validators secure the Vitruveo blockchain — processing transactions, securing consensus, and signing HOST requests. Vertical Foundation runs the network and oversees validator onboarding, health, and success.",
+};
+
+export default function ValidatorsPage() {
+  return (
+    <>
+      <Header />
+      <main>
+        {/* Hero */}
+        <section className="section-padding bg-dark-custom" style={{ paddingTop: '140px' }}>
+          <div className="container">
+            <div className="text-center mb-5">
+              <h1 className="display-4 fw-bold mb-3">
+                <span className="text-gradient">Validators</span>
+              </h1>
+              <p className="lead text-muted-custom mb-4" style={{ maxWidth: '780px', margin: '0 auto', fontSize: '1.4rem' }}>
+                The network that secures Vitruveo — and the operators who run it. Vertical
+                Foundation manages the protocol network and oversees validator onboarding and success.
+              </p>
+              <a href="/validators/app" className="btn btn-green btn-lg px-5">
+                Become a Validator
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Become a Validator */}
+        <section id="become" className="section-padding bg-dark-alt">
+          <div className="container">
+            <div className="text-center mb-5">
+              <h2 className="display-6 fw-bold mb-3">Become a Validator</h2>
+              <p className="text-muted-custom" style={{ maxWidth: '720px', margin: '0 auto' }}>
+                We&apos;re consolidating the network from 350 validators down to 100 — making every
+                remaining seat scarcer and more valuable. A limited number are open now.
+              </p>
+            </div>
+
+            {/* Availability */}
+            <div className="row justify-content-center mb-5">
+              <div className="col-lg-8">
+                <div className="card-accent p-4">
+                  <div className="row text-center">
+                    <div className="col-4">
+                      <div className="display-5 fw-bold text-white">100</div>
+                      <div className="small text-white-50">Total seats</div>
+                    </div>
+                    <div className="col-4">
+                      <div className="display-5 fw-bold text-white">10</div>
+                      <div className="small text-white-50">Reserved</div>
+                    </div>
+                    <div className="col-4">
+                      <div className="display-5 fw-bold text-green">90</div>
+                      <div className="small text-white-50">Remaining</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Two paths */}
+            <div className="row g-4 justify-content-center mb-5">
+              <div className="col-lg-5 col-md-6">
+                <div className="card-dark p-4 p-lg-5 h-100 text-center">
+                  <h3 className="h4 text-green mb-3">New Validator</h3>
+                  <div className="display-5 fw-bold text-white mb-3">$3,000</div>
+                  <p className="text-muted-custom mb-0">
+                    Buy a seat in the new 100-validator set and start earning from every block you mine.
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-5 col-md-6">
+                <div className="card-dark p-4 p-lg-5 h-100 text-center">
+                  <h3 className="h4 text-green mb-3">Former Validator</h3>
+                  <div className="display-5 fw-bold text-white mb-3">
+                    from $100
+                  </div>
+                  <p className="text-muted-custom mb-0">
+                    Reclaim your spot for an admin fee starting at $100. The fee rises by $10 with
+                    every former validator who claims a seat — so earlier is cheaper.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Benefits */}
+            <h3 className="h5 text-center text-white mb-4">What every validator earns</h3>
+            <div className="row g-4 justify-content-center mb-5">
+              <div className="col-lg-5 col-md-6">
+                <div className="card-dark p-4 h-100 text-center">
+                  <div className="h3 text-green mb-2">1 VTRU <span className="h6 text-white-50">/ block mined</span></div>
+                  <h4 className="h6 text-white mb-2">Block Rewards</h4>
+                  <p className="text-muted-custom small mb-0">
+                    Earn 1 VTRU for every block you mine, paid out monthly for 5 years.
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-5 col-md-6">
+                <div className="card-dark p-4 h-100 text-center">
+                  <div className="h3 text-green mb-2">10 <span className="h6 text-white-50">VIBE shares</span></div>
+                  <h4 className="h6 text-white mb-2">Revenue Sharing</h4>
+                  <p className="text-muted-custom small mb-0">
+                    Receive 10 shares of VIBE, sharing in ongoing ecosystem revenue.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Projected income */}
+            <div className="row justify-content-center mb-5">
+              <div className="col-lg-10">
+                <div className="card-accent p-4 p-lg-5">
+                  <h3 className="h5 text-center mb-2">What That Adds Up To</h3>
+                  <p className="text-muted-custom text-center small mb-4" style={{ maxWidth: '640px', margin: '0 auto' }}>
+                    Block rewards run for 5 years. With 5-second blocks shared evenly across the
+                    100-validator set:
+                  </p>
+                  <div className="row g-3 text-center mb-4">
+                    {[
+                      { v: '17,280', l: 'Blocks / day', s: '86,400s ÷ 5s' },
+                      { v: '172.8', l: 'Blocks / validator / day', s: '÷ 100 validators' },
+                      { v: '1 VTRU', l: 'Reward / block', s: 'paid monthly' },
+                      { v: '5 yrs', l: 'Reward period', s: '× 365 days' },
+                    ].map((step) => (
+                      <div key={step.l} className="col-6 col-lg-3">
+                        <div className="p-3 rounded h-100" style={{ background: 'rgba(0,0,0,0.2)' }}>
+                          <div className="h4 text-green mb-1">{step.v}</div>
+                          <div className="small text-white mb-1">{step.l}</div>
+                          <div className="text-white-50" style={{ fontSize: '0.75rem' }}>{step.s}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="text-center pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.12)' }}>
+                    <div className="display-5 fw-bold text-green mb-1">315,360 VTRU</div>
+                    <div className="text-white-50 small">
+                      per validator over 5 years — about 31.5M VTRU across the full 100-validator set.
+                    </div>
+                    <div className="text-white-50 mt-2" style={{ fontSize: '0.75rem' }}>
+                      Assumes even block distribution; actual rewards vary with uptime and rotation.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Liquidity note + CTA */}
+            <div className="text-center">
+              <p className="text-white-50 small mb-4" style={{ maxWidth: '620px', margin: '0 auto' }}>
+                $50 of every fee goes directly to liquidity, and the resulting LP fees are burned —
+                strengthening VTRU for everyone who holds it.
+              </p>
+              <a href="/validators/app" className="btn btn-green btn-lg px-5">
+                Become a Validator
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}

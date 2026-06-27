@@ -41,18 +41,15 @@ export default function Header() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className={`navbar-collapse justify-content-end ${menuOpen ? 'show' : 'collapse'}`} id="navbarNav">
-          <ul className="navbar-nav" onClick={() => setMenuOpen(false)}>
+          <ul className="navbar-nav gap-md-4" onClick={() => setMenuOpen(false)}>
             <li className="nav-item">
-              <a className="nav-link" href="/#about">About</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/host">HOST</a>
+              <a className="nav-link" href="/">Home</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/pretrend">Pretrend</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="mailto:info@verticalfoundation.net">Contact</a>
+              <a className="nav-link" href="/validators">Validator Onboarding</a>
             </li>
           </ul>
         </div>
