@@ -143,66 +143,73 @@ export default function PretrendPage() {
               </p>
             </div>
 
-            <div className="position-relative">
-              {/* connecting line (desktop) */}
-              <div
-                className="d-none d-lg-block position-absolute"
-                style={{
-                  top: '28px',
-                  left: '12.5%',
-                  right: '12.5%',
-                  height: '2px',
-                  background: 'linear-gradient(90deg, rgba(123,196,127,0.15), rgba(123,196,127,0.6), rgba(123,196,127,0.15))',
-                  zIndex: 0,
-                }}
-              />
-              <div className="row g-4">
-                {[
-                  {
-                    q: 'Q1 2026',
-                    title: 'Shanghai Upgrade & Protocol Contracts',
-                    desc: 'Upgrade Vitruveo to the Shanghai EVM and build the protocol smart contracts that Pretrend depends on.',
-                    href: 'https://explorer.vitruveo.ai',
-                    cta: 'View Explorer',
-                  },
-                  {
-                    q: 'Q2 2026',
-                    title: 'On-Chain Trend Algorithm',
-                    desc: 'Build the trend-calculation algorithm into the protocol and expose it as a protocol smart contract.',
-                    href: 'https://www.vitruveo.ai/developers/psc/trend',
-                    cta: 'Try it out',
-                  },
-                  {
-                    q: 'Q3 2026',
-                    title: 'Smart Contracts, Libraries & SDK',
-                    desc: 'Develop and deploy the smart contracts that implement the Pretrend protocol, plus the libraries and SDK developers need to build on it.',
-                    href: null,
-                    cta: null,
-                  },
-                  {
-                    q: 'Q4 2026',
-                    title: 'Oracle & Launch',
-                    desc: 'Complete development of Pretrend and launch the oracle alongside the reference site.',
-                    href: null,
-                    cta: null,
-                  },
-                ].map((item, i) => (
-                  <div key={item.q} className="col-lg-3 col-md-6">
-                    <div className="text-center mb-3" style={{ position: 'relative', zIndex: 1 }}>
-                      <div
-                        className="rounded-circle mx-auto d-flex align-items-center justify-content-center fw-bold"
-                        style={{
-                          width: '56px',
-                          height: '56px',
-                          background: 'var(--vf-dark-alt)',
-                          border: '2px solid #7bc47f',
-                          color: '#a8e6a3',
-                        }}
-                      >
-                        {i + 1}
-                      </div>
+            <div className="row g-4">
+              {[
+                {
+                  q: 'Q1 2026',
+                  title: 'Shanghai Upgrade & Protocol Contracts',
+                  desc: 'Upgrade protocol to Shanghai, remove legacy features and revise tokenomics.',
+                  href: 'https://explorer.vitruveo.ai',
+                  cta: 'View Explorer',
+                  done: true,
+                },
+                {
+                  q: 'Q2 2026',
+                  title: 'On-Chain Trend Algorithm',
+                  desc: 'Implement algorithms needed for Pretrend into the protocol as built-in smart contracts and deploy.',
+                  href: 'https://www.vitruveo.ai/developers/psc/trend',
+                  cta: 'Try it out',
+                  done: true,
+                },
+                {
+                  q: 'Q3 2026',
+                  title: 'Smart Contracts, Libraries & SDK',
+                  desc: 'Develop and deploy the smart contracts that implement the Pretrend protocol, plus the libraries and SDK developers need to build on it.',
+                  href: null,
+                  cta: null,
+                  done: false,
+                },
+                {
+                  q: 'Q4 2026',
+                  title: 'Oracle & Launch',
+                  desc: 'Complete development of Pretrend and launch the oracle alongside the reference site.',
+                  href: null,
+                  cta: null,
+                  done: false,
+                },
+              ].map((item, i, arr) => (
+                <div key={item.q} className="col-lg-3 col-md-6">
+                  {/* timeline marker with vertically-centered connecting line */}
+                  <div className="position-relative d-flex justify-content-center mb-3" style={{ height: '56px' }}>
+                    <div
+                      className="d-none d-lg-block position-absolute"
+                      style={{
+                        top: '50%',
+                        left: i === 0 ? '50%' : '-12px',
+                        right: i === arr.length - 1 ? '50%' : '-12px',
+                        height: '2px',
+                        transform: 'translateY(-50%)',
+                        background: 'linear-gradient(90deg, rgba(123,196,127,0.4), rgba(123,196,127,0.6))',
+                        zIndex: 0,
+                      }}
+                    />
+                    <div
+                      className="rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                      style={{
+                        width: '56px',
+                        height: '56px',
+                        background: 'var(--vf-dark-alt)',
+                        border: '2px solid #7bc47f',
+                        color: '#a8e6a3',
+                        position: 'relative',
+                        zIndex: 1,
+                      }}
+                    >
+                      {i + 1}
                     </div>
-                    <div className="card-dark p-4 h-100 text-center">
+                  </div>
+                  <div className="card-dark p-4 h-100 text-center d-flex flex-column">
+                    <div>
                       <div
                         className="d-inline-block px-3 py-1 rounded-pill mb-3"
                         style={{ background: 'rgba(123,196,127,0.12)', border: '1px solid rgba(123,196,127,0.35)' }}
@@ -222,9 +229,22 @@ export default function PretrendPage() {
                         </a>
                       )}
                     </div>
+                    {item.done && (
+                      <div className="mt-auto pt-4">
+                        <span
+                          className="d-inline-flex align-items-center justify-content-center rounded-circle"
+                          style={{ width: '128px', height: '128px', background: '#4ade80', boxShadow: '0 0 36px rgba(74,222,128,0.55)' }}
+                          aria-label="Complete"
+                        >
+                          <svg width="76" height="76" viewBox="0 0 24 24" fill="none" stroke="#0a0f0a" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </span>
+                      </div>
+                    )}
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>

@@ -21,11 +21,17 @@ export default function ValidatorsPage() {
               </h1>
               <p className="lead text-muted-custom mb-4" style={{ maxWidth: '780px', margin: '0 auto', fontSize: '1.4rem' }}>
                 The network that secures Vitruveo — and the operators who run it. Vertical
-                Foundation manages the protocol network and oversees validator onboarding and success.
+                Foundation manages the protocol network and oversees validator
+                onboarding and&nbsp;success.
               </p>
-              <a href="/validators/app" className="btn btn-green btn-lg px-5">
-                Become a Validator
-              </a>
+              <div className="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="/validators/app" className="btn btn-green btn-lg px-5">
+                  Become a Validator
+                </a>
+                <a href="https://network.vitruveo.ai" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-lg px-5">
+                  View Live Network
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -43,7 +49,7 @@ export default function ValidatorsPage() {
 
             {/* Availability */}
             <div className="row justify-content-center mb-5">
-              <div className="col-lg-8">
+              <div className="col-lg-10">
                 <div className="card-accent p-4">
                   <div className="row text-center">
                     <div className="col-4">
@@ -83,6 +89,20 @@ export default function ValidatorsPage() {
                   <p className="text-muted-custom mb-0">
                     Reclaim your spot for an admin fee starting at $100. The fee rises by $10 with
                     every former validator who claims a seat — so earlier is cheaper.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Liquidity commitment */}
+            <div className="row justify-content-center mb-5">
+              <div className="col-lg-10">
+                <div className="card-accent p-4 p-lg-5 text-center">
+                  <h3 className="h5 text-green mb-3">Every Seat Strengthens VTRU</h3>
+                  <p className="text-white mb-0" style={{ fontSize: '1.2rem', lineHeight: 1.7, maxWidth: '720px', margin: '0 auto' }}>
+                    <strong className="text-green">$50 of every fee</strong> goes directly to
+                    liquidity, and the <strong className="text-green">LP tokens are burned</strong>,
+                    {' '}ensuring the liquidity is permanent and strengthening VTRU for everyone who holds it.
                   </p>
                 </div>
               </div>
@@ -149,12 +169,8 @@ export default function ValidatorsPage() {
               </div>
             </div>
 
-            {/* Liquidity note + CTA */}
+            {/* CTA */}
             <div className="text-center">
-              <p className="text-white-50 small mb-4" style={{ maxWidth: '620px', margin: '0 auto' }}>
-                $50 of every fee goes directly to liquidity, and the resulting LP fees are burned —
-                strengthening VTRU for everyone who holds it.
-              </p>
               <a href="/validators/app" className="btn btn-green btn-lg px-5">
                 Become a Validator
               </a>

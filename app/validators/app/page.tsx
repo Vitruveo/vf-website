@@ -31,9 +31,6 @@ export default function ValidatorAppPage() {
               <a href="/validators" className="btn btn-outline-light btn-lg px-5">
                 Back to Validators
               </a>
-              <a href="mailto:info@verticalfoundation.net" className="btn btn-green btn-lg px-5">
-                Get Notified
-              </a>
             </div>
           </div>
         </section>
