@@ -199,6 +199,37 @@ p {
   border-radius: 12px;
 }
 
+/* Pulsing glow for completed milestones */
+@keyframes vfPulse {
+  0%, 100% { box-shadow: 0 0 22px rgba(74, 222, 128, 0.5); }
+  50% { box-shadow: 0 0 46px rgba(74, 222, 128, 0.9); }
+}
+
+.vf-pulse {
+  animation: vfPulse 2.6s ease-in-out infinite;
+}
+
+/* In-progress motion: spinning gear + flipping hourglass */
+@keyframes vfSpin {
+  to { transform: rotate(360deg); }
+}
+
+.vf-spin {
+  animation: vfSpin 9s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes vfFlip {
+  0%, 35% { transform: rotate(0deg); }
+  50%, 85% { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.vf-flip {
+  animation: vfFlip 4.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
 /* Prominent CTA button */
 .btn-green {
   background-color: var(--vf-green-light);

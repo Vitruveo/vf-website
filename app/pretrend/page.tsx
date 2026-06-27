@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { AnimatedBuckets, CountUp } from './visuals';
 
 export const metadata: Metadata = {
   title: "Pretrend Protocol | Vertical Foundation",
@@ -112,6 +113,53 @@ const YesMark = () => (
 
 const NoMark = () => <span className="text-white-50" aria-label="No">—</span>;
 
+const InProgressBadge = () => (
+  <div
+    className="position-relative d-inline-flex align-items-center justify-content-center"
+    style={{ width: '120px', height: '120px' }}
+    aria-label="In progress"
+  >
+    <svg className="vf-spin position-absolute" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#7bc47f" strokeOpacity="0.45" strokeWidth="1.1">
+      <circle cx="12" cy="12" r="3" />
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+    </svg>
+    <svg className="vf-flip" width="52" height="52" viewBox="0 0 24 24">
+      <rect x="5" y="2" width="14" height="1.6" rx="0.8" fill="#a8e6a3" />
+      <rect x="5" y="20.4" width="14" height="1.6" rx="0.8" fill="#a8e6a3" />
+      <path d="M7 3.6h10v1.9c0 3-3.5 4.5-5 6.5-1.5-2-5-3.5-5-6.5z" fill="rgba(168,230,163,0.55)" />
+      <path d="M7 20.4h10v-1.9c0-3-3.5-4.5-5-6.5-1.5 2-5 3.5-5 6.5z" fill="rgba(168,230,163,0.55)" />
+    </svg>
+  </div>
+);
+
+const ReachSVG = () => (
+  <svg viewBox="0 0 800 360" style={{ width: '100%', height: 'auto' }}>
+    <defs>
+      <linearGradient id="reachGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="#7bc47f" stopOpacity="0.25" />
+        <stop offset="100%" stopColor="#a8e6a3" stopOpacity="0.25" />
+      </linearGradient>
+    </defs>
+    {[[150, 70], [650, 70], [150, 290], [650, 290]].map(([x, y], i) => (
+      <line key={i} x1="400" y1="180" x2={x} y2={y} stroke="#7bc47f" strokeWidth="1.5" strokeOpacity="0.4" />
+    ))}
+    {[
+      { x: 60, y: 40, t: 'Primary Marketplace' },
+      { x: 560, y: 40, t: 'White-Label Partners' },
+      { x: 60, y: 260, t: 'Open-Source Builders' },
+      { x: 560, y: 260, t: 'BSC & EVM Chains' },
+    ].map((n, i) => (
+      <g key={i}>
+        <rect x={n.x} y={n.y} width="180" height="60" rx="10" fill="#15211a" stroke="#7bc47f" strokeWidth="1" />
+        <text x={n.x + 90} y={n.y + 35} textAnchor="middle" fill="rgba(255,255,255,0.85)" fontSize="13" fontWeight="600">{n.t}</text>
+      </g>
+    ))}
+    <rect x="300" y="140" width="200" height="80" rx="14" fill="#1b2a20" stroke="#a8e6a3" strokeWidth="1.5" />
+    <text x="400" y="172" textAnchor="middle" fill="#a8e6a3" fontSize="15" fontWeight="700">PRETREND ORACLE</text>
+    <text x="400" y="194" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="12">on Vitruveo</text>
+  </svg>
+);
+
 export default function PretrendPage() {
   return (
     <>
@@ -129,6 +177,27 @@ export default function PretrendPage() {
                 magnitude and direction of change — not just whether an event occurs.
               </p>
               <p className="text-white-50 mt-3">Version 2.0</p>
+              <div className="row g-3 justify-content-center mt-4">
+                <div className="col-6 col-md-3">
+                  <div className="display-5 fw-bold text-green"><CountUp end={5} /></div>
+                  <div className="small text-white-50">Outcome buckets</div>
+                </div>
+                <div className="col-6 col-md-3">
+                  <div className="display-5 fw-bold text-green"><CountUp end={5} suffix="s" /></div>
+                  <div className="small text-white-50">Block time</div>
+                </div>
+                <div className="col-6 col-md-3">
+                  <div className="display-5 fw-bold text-green"><CountUp end={4} suffix=" Gwei" /></div>
+                  <div className="small text-white-50">Gas price</div>
+                </div>
+                <div className="col-6 col-md-3">
+                  <div className="display-5 fw-bold text-green"><CountUp end={100} suffix="%" /></div>
+                  <div className="small text-white-50">On-chain compute</div>
+                </div>
+              </div>
+              <a href="https://pretrend.ai" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-lg px-5 mt-5">
+                Read the Whitepaper
+              </a>
             </div>
           </div>
         </section>
@@ -152,6 +221,7 @@ export default function PretrendPage() {
                   href: 'https://explorer.vitruveo.ai',
                   cta: 'View Explorer',
                   done: true,
+                  inProgress: false,
                 },
                 {
                   q: 'Q2 2026',
@@ -160,6 +230,7 @@ export default function PretrendPage() {
                   href: 'https://www.vitruveo.ai/developers/psc/trend',
                   cta: 'Try it out',
                   done: true,
+                  inProgress: false,
                 },
                 {
                   q: 'Q3 2026',
@@ -168,6 +239,7 @@ export default function PretrendPage() {
                   href: null,
                   cta: null,
                   done: false,
+                  inProgress: true,
                 },
                 {
                   q: 'Q4 2026',
@@ -176,6 +248,7 @@ export default function PretrendPage() {
                   href: null,
                   cta: null,
                   done: false,
+                  inProgress: false,
                 },
               ].map((item, i, arr) => (
                 <div key={item.q} className="col-lg-3 col-md-6">
@@ -232,14 +305,19 @@ export default function PretrendPage() {
                     {item.done && (
                       <div className="mt-auto pt-4">
                         <span
-                          className="d-inline-flex align-items-center justify-content-center rounded-circle"
-                          style={{ width: '128px', height: '128px', background: '#4ade80', boxShadow: '0 0 36px rgba(74,222,128,0.55)' }}
+                          className="d-inline-flex align-items-center justify-content-center rounded-circle vf-pulse"
+                          style={{ width: '128px', height: '128px', background: '#4ade80' }}
                           aria-label="Complete"
                         >
                           <svg width="76" height="76" viewBox="0 0 24 24" fill="none" stroke="#0a0f0a" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
                             <polyline points="20 6 9 17 4 12" />
                           </svg>
                         </span>
+                      </div>
+                    )}
+                    {item.inProgress && (
+                      <div className="mt-auto pt-4">
+                        <InProgressBadge />
                       </div>
                     )}
                   </div>
@@ -340,6 +418,58 @@ export default function PretrendPage() {
           </div>
         </section>
 
+        {/* Why Now */}
+        <section className="section-padding bg-dark-custom">
+          <div className="container">
+            <div className="text-center mb-5">
+              <h2 className="display-6 fw-bold mb-3">Why Now</h2>
+              <p className="text-muted-custom" style={{ maxWidth: '720px', margin: '0 auto' }}>
+                Prediction markets have broken into the mainstream — billions in volume, millions of
+                participants, headlines worldwide. The appetite is proven, and the category is still early.
+              </p>
+            </div>
+
+            <div className="row g-4 mb-5">
+              <div className="col-md-6">
+                <div className="card-dark p-4 p-lg-5 h-100">
+                  <div className="d-flex justify-content-between align-items-baseline mb-3">
+                    <span className="h5 text-white mb-0">Polymarket</span>
+                    <span className="display-6 fw-bold text-green"><CountUp end={9} prefix="$" suffix="B+" /></span>
+                  </div>
+                  <div className="rounded-pill" style={{ height: '10px', background: 'rgba(255,255,255,0.06)' }}>
+                    <div className="rounded-pill" style={{ height: '10px', width: '100%', background: 'linear-gradient(90deg,#7bc47f,#a8e6a3)' }} />
+                  </div>
+                  <div className="small text-white-50 mt-2">Reported trading volume</div>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="card-dark p-4 p-lg-5 h-100">
+                  <div className="d-flex justify-content-between align-items-baseline mb-3">
+                    <span className="h5 text-white mb-0">Kalshi</span>
+                    <span className="display-6 fw-bold text-green"><CountUp end={2} prefix="$" suffix="B+" /></span>
+                  </div>
+                  <div className="rounded-pill" style={{ height: '10px', background: 'rgba(255,255,255,0.06)' }}>
+                    <div className="rounded-pill" style={{ height: '10px', width: '22%', background: 'linear-gradient(90deg,#7bc47f,#a8e6a3)' }} />
+                  </div>
+                  <div className="small text-white-50 mt-2">Reported trading volume</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="card-accent p-4 p-lg-5 text-center">
+              <p className="text-white mb-0" style={{ fontSize: '1.2rem', lineHeight: 1.7, maxWidth: '760px', margin: '0 auto' }}>
+                Yet every one of those markets still asks a single yes-or-no question. Pretrend opens
+                the same momentum to a richer kind of market — one that captures{' '}
+                <strong className="text-green">how far</strong> and{' '}
+                <strong className="text-green">which way</strong>, not just whether.
+              </p>
+            </div>
+            <p className="text-white-50 text-center small mt-3 mb-0">
+              Polymarket and Kalshi figures are approximate, reported trading volumes.
+            </p>
+          </div>
+        </section>
+
         {/* Five Outcome Buckets */}
         <section className="section-padding bg-dark-custom">
           <div className="container">
@@ -369,6 +499,41 @@ export default function PretrendPage() {
             <div className="card-dark p-4">
               <BucketDistributionSVG />
             </div>
+          </div>
+        </section>
+
+        {/* What You Can Predict */}
+        <section className="section-padding bg-dark-alt">
+          <div className="container">
+            <h2 className="display-6 fw-bold text-center mb-3">What You Can Predict</h2>
+            <p className="text-muted-custom text-center mb-5" style={{ maxWidth: '680px', margin: '0 auto' }}>
+              If it moves over time, it can become a market. A glimpse of what Pretrend makes&nbsp;possible:
+            </p>
+            <div className="row g-4">
+              {[
+                { cat: 'Crypto', q: "Where does Bitcoin's 30-day trend land?", hi: 3 },
+                { cat: 'Equities', q: "How strong is NVIDIA's momentum this quarter?", hi: 4 },
+                { cat: 'AI', q: 'Is demand for AI compute still accelerating?', hi: 4 },
+                { cat: 'Social', q: "A creator's follower growth over 90 days", hi: 2 },
+                { cat: 'Macro', q: 'Which way is inflation trending?', hi: 1 },
+                { cat: 'Culture', q: "A film's opening-month box-office momentum", hi: 3 },
+              ].map((m) => (
+                <div key={m.q} className="col-lg-4 col-md-6">
+                  <div className="card-dark p-4 h-100 d-flex flex-column">
+                    <div className="small text-green fw-semibold mb-2" style={{ letterSpacing: '0.08em' }}>
+                      {m.cat.toUpperCase()}
+                    </div>
+                    <p className="text-white mb-4">{m.q}</p>
+                    <div className="mt-auto">
+                      <AnimatedBuckets start={m.hi} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-white-50 text-center small mt-5 mb-0" style={{ maxWidth: '660px', margin: '0 auto' }}>
+              Five graded outcomes — Crash, Bear, Flat, Bull, Moon — for any time-series the world produces.
+            </p>
           </div>
         </section>
 
@@ -427,7 +592,7 @@ export default function PretrendPage() {
             <h2 className="display-6 fw-bold text-center mb-3">Trend Precompile</h2>
             <p className="text-muted-custom text-center mb-5" style={{ maxWidth: '700px', margin: '0 auto' }}>
               A native precompiled contract on the Vitruveo blockchain that performs statistical
-              computation at the Geth client layer — compiled Go code, not interpreted EVM bytecode.
+              computation at the Geth client layer — compiled Go code, not interpreted EVM&nbsp;bytecode.
             </p>
 
             <div className="row g-4 mb-5">
@@ -579,6 +744,7 @@ export default function PretrendPage() {
                 { category: 'Social Metrics', examples: 'Follower counts, view counts, engagement rates', resolution: '1-4 hours', window: '90 days' },
                 { category: 'Economic', examples: 'Inflation, unemployment, interest rates', resolution: '24 hours to weekly', window: '1 year' },
                 { category: 'Elections', examples: 'Polling aggregates, approval ratings', resolution: '24 hours', window: '90 days' },
+                { category: 'Commodities', examples: 'Oil, gold, natural gas, agricultural futures', resolution: '15-60 minutes', window: '90 days' },
               ].map((source) => (
                 <div key={source.category} className="col-lg-4 col-md-6">
                   <div className="card-dark p-4 h-100">
@@ -600,6 +766,14 @@ export default function PretrendPage() {
             <h2 className="display-6 fw-bold text-center mb-3">Marketplace Models</h2>
             <p className="text-muted-custom text-center mb-5" style={{ maxWidth: '600px', margin: '0 auto' }}>
               Multiple deployment models for different use cases.
+            </p>
+
+            <div className="card-dark p-4 mb-4">
+              <ReachSVG />
+            </div>
+            <p className="text-muted-custom text-center mb-5" style={{ maxWidth: '700px', margin: '0 auto' }}>
+              One oracle on Vitruveo resolves markets wherever they live — and the more places
+              Pretrend runs, the stronger the whole network becomes.
             </p>
 
             <div className="row g-4">
@@ -639,7 +813,7 @@ export default function PretrendPage() {
           <div className="container">
             <h2 className="display-6 fw-bold text-center mb-3">Security</h2>
             <p className="text-muted-custom text-center mb-5" style={{ maxWidth: '700px', margin: '0 auto' }}>
-              Trust-minimized by design — every result is signed, on-chain, and independently verifiable.
+              Trust-minimized by design — every result is signed, on-chain, and independently&nbsp;verifiable.
             </p>
             <div className="row g-4">
               <div className="col-lg-6">
@@ -686,13 +860,21 @@ export default function PretrendPage() {
         {/* CTA */}
         <section className="section-padding bg-dark-alt">
           <div className="container text-center">
-            <h2 className="h3 fw-bold mb-3">Get in Touch</h2>
+            <p className="display-5 fw-bold mb-4" style={{ maxWidth: '820px', margin: '0 auto' }}>
+              The world runs on trends.{' '}
+              <span className="text-gradient">Pretrend makes them tradable.</span>
+            </p>
             <p className="text-muted-custom mb-4" style={{ maxWidth: '500px', margin: '0 auto' }}>
               Interested in building on Pretrend or deploying a white-label marketplace?
             </p>
-            <a href="mailto:info@verticalfoundation.net" className="btn btn-outline-light btn-lg px-5">
-              Contact Us
-            </a>
+            <div className="d-flex gap-3 justify-content-center flex-wrap">
+              <a href="mailto:info@verticalfoundation.net" className="btn btn-green btn-lg px-5">
+                Contact Us
+              </a>
+              <a href="https://pretrend.ai" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-lg px-5">
+                Read the Whitepaper
+              </a>
+            </div>
           </div>
         </section>
       </main>

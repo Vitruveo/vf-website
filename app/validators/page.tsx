@@ -13,7 +13,16 @@ export default function ValidatorsPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="section-padding bg-dark-custom" style={{ paddingTop: '140px' }}>
+        <section
+          className="section-padding position-relative"
+          style={{
+            paddingTop: '140px',
+            backgroundImage:
+              'linear-gradient(rgba(10,15,10,0.80), rgba(10,15,10,0.93)), url(/network.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <div className="container">
             <div className="text-center mb-5">
               <h1 className="display-4 fw-bold mb-3">
