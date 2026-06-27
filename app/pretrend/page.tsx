@@ -195,7 +195,7 @@ export default function PretrendPage() {
                   <div className="small text-white-50">On-chain compute</div>
                 </div>
               </div>
-              <a href="https://pretrend.ai" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-lg px-5 mt-5">
+              <a href="https://www.pretrend.ai" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-lg px-5 mt-5">
                 Read the Whitepaper
               </a>
             </div>
@@ -871,7 +871,7 @@ export default function PretrendPage() {
               <a href="mailto:info@verticalfoundation.net" className="btn btn-green btn-lg px-5">
                 Contact Us
               </a>
-              <a href="https://pretrend.ai" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-lg px-5">
+              <a href="https://www.pretrend.ai" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-lg px-5">
                 Read the Whitepaper
               </a>
             </div>
