@@ -230,6 +230,15 @@ p {
   transform-origin: center;
 }
 
+/* Marching-dash ring for the virtuous-circle flywheel */
+@keyframes vfDash {
+  to { stroke-dashoffset: -170; }
+}
+
+.vf-dash {
+  animation: vfDash 5s linear infinite;
+}
+
 /* Prominent CTA button */
 .btn-green {
   background-color: var(--vf-green-light);

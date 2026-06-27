@@ -160,6 +160,44 @@ const ReachSVG = () => (
   </svg>
 );
 
+const VirtuousCircleSVG = () => (
+  <svg viewBox="0 0 760 460" style={{ width: '100%', height: 'auto', display: 'block' }}>
+    <defs>
+      <marker id="vcArrow" markerWidth="10" markerHeight="8" refX="7" refY="4" orient="auto">
+        <polygon points="0 0, 10 4, 0 8" fill="#7bc47f" />
+      </marker>
+    </defs>
+
+    {/* rotating flywheel ring */}
+    <circle className="vf-dash" cx="380" cy="230" r="150" fill="none" stroke="#7bc47f" strokeOpacity="0.2" strokeWidth="2" strokeDasharray="5 12" />
+
+    {/* clockwise flow arrows */}
+    <path d="M465 82.8 A170 170 0 0 1 527.2 145" fill="none" stroke="#7bc47f" strokeWidth="2.5" markerEnd="url(#vcArrow)" />
+    <path d="M527.2 315 A170 170 0 0 1 465 377.2" fill="none" stroke="#7bc47f" strokeWidth="2.5" markerEnd="url(#vcArrow)" />
+    <path d="M295 377.2 A170 170 0 0 1 232.8 315" fill="none" stroke="#7bc47f" strokeWidth="2.5" markerEnd="url(#vcArrow)" />
+    <path d="M232.8 145 A170 170 0 0 1 295 82.8" fill="none" stroke="#7bc47f" strokeWidth="2.5" markerEnd="url(#vcArrow)" />
+
+    {/* nodes */}
+    <rect x="300" y="34" width="160" height="52" rx="10" fill="#15211a" stroke="#7bc47f" strokeWidth="1" />
+    <text x="380" y="65" textAnchor="middle" fill="#a8e6a3" fontSize="14" fontWeight="600">Pretrend grows</text>
+
+    <rect x="465" y="204" width="170" height="52" rx="10" fill="#15211a" stroke="#7bc47f" strokeWidth="1" />
+    <text x="550" y="235" textAnchor="middle" fill="#a8e6a3" fontSize="14" fontWeight="600">VTRU strengthens</text>
+
+    <rect x="300" y="374" width="160" height="52" rx="10" fill="#15211a" stroke="#7bc47f" strokeWidth="1" />
+    <text x="380" y="405" textAnchor="middle" fill="#a8e6a3" fontSize="14" fontWeight="600">Ecosystem grows</text>
+
+    <rect x="125" y="204" width="170" height="52" rx="10" fill="#15211a" stroke="#7bc47f" strokeWidth="1" />
+    <text x="210" y="235" textAnchor="middle" fill="#a8e6a3" fontSize="14" fontWeight="600">VIBE holders earn</text>
+
+    {/* center split */}
+    <text x="380" y="214" textAnchor="middle" fill="#7bc47f" fontSize="28" fontWeight="700">2%</text>
+    <text x="380" y="232" textAnchor="middle" fill="rgba(255,255,255,0.55)" fontSize="11">of Pretrend revenue</text>
+    <text x="380" y="251" textAnchor="middle" fill="rgba(255,255,255,0.85)" fontSize="11">1% → VTRU liquidity</text>
+    <text x="380" y="268" textAnchor="middle" fill="rgba(255,255,255,0.85)" fontSize="11">1% → VIBE holders</text>
+  </svg>
+);
+
 export default function PretrendPage() {
   return (
     <>
@@ -470,6 +508,52 @@ export default function PretrendPage() {
           </div>
         </section>
 
+        {/* VIBE Revenue Share — Virtuous Circle */}
+        <section className="section-padding bg-dark-alt">
+          <div className="container">
+            <div className="text-center mb-5">
+              <h2 className="display-6 fw-bold mb-3">A Virtuous Circle</h2>
+              <p className="text-muted-custom" style={{ maxWidth: '720px', margin: '0 auto' }}>
+                Pretrend doesn&apos;t grow in isolation. A share of every dollar it earns flows back
+                into the ecosystem — and that success compounds.
+              </p>
+            </div>
+
+            <div className="row g-4 align-items-center">
+              <div className="col-lg-7 mb-4 mb-lg-0">
+                <div className="card-dark p-4 p-lg-5">
+                  <VirtuousCircleSVG />
+                </div>
+              </div>
+              <div className="col-lg-5">
+                <div className="card-accent p-4 p-lg-5 mb-4">
+                  <h3 className="h5 mb-3">The 2% Revenue Share</h3>
+                  <p className="text-muted-custom mb-3">
+                    2% of all Pretrend revenue is split straight back into the ecosystem:
+                  </p>
+                  <div className="d-flex flex-column gap-2">
+                    <div className="p-3 rounded" style={{ background: 'rgba(0,0,0,0.25)' }}>
+                      <span className="text-green fw-bold">1%</span>
+                      <span className="text-white ms-2">deepens VTRU liquidity</span>
+                    </div>
+                    <div className="p-3 rounded" style={{ background: 'rgba(0,0,0,0.25)' }}>
+                      <span className="text-green fw-bold">1%</span>
+                      <span className="text-white ms-2">flows to every VIBE holder</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-dark p-4">
+                  <h3 className="h6 text-green mb-2">Success compounds</h3>
+                  <p className="text-muted-custom small mb-0">
+                    Pretrend&apos;s success drives VTRU&apos;s, and VTRU&apos;s drives the whole
+                    ecosystem&apos;s — lifting asset value and rewarding VIBE holders at the same time.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Five Outcome Buckets */}
         <section className="section-padding bg-dark-custom">
           <div className="container">
@@ -572,6 +656,11 @@ export default function PretrendPage() {
                   title: 'HOST Bridge',
                   location: 'Vitruveo to external chains',
                   desc: 'Pushes resolution data cross-chain via HTTP Outbound Service Trigger. Validator-signed payloads ensure cryptographic proof of resolution.',
+                },
+                {
+                  title: 'Provider Modules',
+                  location: 'Off-chain',
+                  desc: 'Per-source adapters that fetch, authenticate, and normalize external time-series data before it reaches the Notary for signing.',
                 },
               ].map((component) => (
                 <div key={component.title} className="col-lg-4 col-md-6">
