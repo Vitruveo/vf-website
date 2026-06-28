@@ -85,7 +85,7 @@ export default function ValidatorsPage() {
                   <h3 className="h4 text-green mb-3">New Validator</h3>
                   <div className="display-5 fw-bold text-white mb-3">$3,000</div>
                   <p className="text-muted-custom mb-0">
-                    Buy a seat in the new 100-validator set and start earning from every block you mine.
+                    Buy a seat in the new 100-validator set and start earning from every block you mine. (New Validators automatically receive Reward 1 and Reward 2 described below.)
                   </p>
                 </div>
               </div>
@@ -231,7 +231,7 @@ export default function ValidatorsPage() {
                   </p>
                   <p className="text-muted-custom mb-0">
                     Pro-rata ownership of a{' '}
-                    <span className="text-green fw-semibold">3.6% validator-pool allocation</span>{' '}
+                    <span className="text-green fw-semibold">5% validator-pool allocation</span>{' '}
                     of future Pretrend tokens.
                   </p>
                 </div>
