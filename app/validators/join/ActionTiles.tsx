@@ -24,6 +24,24 @@ const NEW_PRICE = parseUnits('3000', USDT_DECIMALS);
 
 type Kind = 'new' | 'rejoin';
 
+// Small BNB / BSC mark to show the price is on BNB Smart Chain.
+const BscMark = () => (
+  <svg
+    viewBox="0 0 24 24"
+    role="img"
+    aria-label="BNB Smart Chain"
+    style={{ width: '0.72em', height: '0.72em', marginLeft: '0.3rem', verticalAlign: 'baseline' }}
+  >
+    <g fill="#F0B90B">
+      <path d="M12 9.4 14.6 12 12 14.6 9.4 12Z" />
+      <path d="M12 3.4 14.6 6 12 8.6 9.4 6Z" />
+      <path d="M12 15.4 14.6 18 12 20.6 9.4 18Z" />
+      <path d="M6 9.4 8.6 12 6 14.6 3.4 12Z" />
+      <path d="M18 9.4 20.6 12 18 14.6 15.4 12Z" />
+    </g>
+  </svg>
+);
+
 export default function ActionTiles() {
   const { address, isConnected, chainId } = useAccount();
   const { switchChainAsync } = useSwitchChain();
@@ -59,9 +77,9 @@ export default function ActionTiles() {
   const decimals = USDT_DECIMALS;
   const isValidator = Boolean(isValidatorRaw);
 
-  const rows: { address: string; type: 'New' | 'Re-join' }[] = [
+  const rows: { address: string; type: 'New' | 'Rejoin' }[] = [
     ...newValidators.map((a) => ({ address: a as string, type: 'New' as const })),
-    ...rejoinedValidators.map((a) => ({ address: a as string, type: 'Re-join' as const })),
+    ...rejoinedValidators.map((a) => ({ address: a as string, type: 'Rejoin' as const })),
   ];
 
   const onBsc = chainId === bsc.id;
@@ -132,19 +150,14 @@ export default function ActionTiles() {
   return (
     <>
       <div className="row g-4 justify-content-center mt-2">
-        {/* Re-join */}
+        {/* Rejoin */}
         <div className="col-lg-5 col-md-6">
           <div className="card-dark p-4 p-lg-5 h-100 text-center d-flex flex-column">
-            <h3 className="h4 text-green mb-4">Re-join</h3>
-            <div className="mb-2">
+            <h3 className="h4 text-green mb-4">Rejoin</h3>
+            <div className="mb-5">
               <div className="small text-white-50">Current Price</div>
-              <div className="display-6 fw-bold text-white">{fmtUsdt(rejoinPrice)} USDT</div>
-            </div>
-            <div className="mb-4">
-              <div className="small text-white-50">Available Slots</div>
-              <div className="h4 text-white mb-0">{slotsLabel}</div>
-            </div>
-            <div className="mt-auto">
+              <div className="display-6 fw-bold text-white">{fmtUsdt(rejoinPrice)} USDT<BscMark /></div>
+            </div>            <div className="mt-auto">
               <button
                 className="btn btn-green btn-lg px-5 w-100"
                 onClick={() => handleBuy('rejoin')}
@@ -154,7 +167,7 @@ export default function ActionTiles() {
               </button>
               {isConnected && !isValidator && (
                 <p className="small text-white-50 mt-3 mb-0">
-                  This wallet isn&apos;t a legacy validator, so re-join is unavailable.
+                  This wallet isn&apos;t a legacy validator, so rejoin is unavailable.
                 </p>
               )}
             </div>
@@ -165,15 +178,10 @@ export default function ActionTiles() {
         <div className="col-lg-5 col-md-6">
           <div className="card-dark p-4 p-lg-5 h-100 text-center d-flex flex-column">
             <h3 className="h4 text-green mb-4">New</h3>
-            <div className="mb-2">
+            <div className="mb-5">
               <div className="small text-white-50">Price</div>
-              <div className="display-6 fw-bold text-white">3,000 USDT</div>
-            </div>
-            <div className="mb-4">
-              <div className="small text-white-50">Available Slots</div>
-              <div className="h4 text-white mb-0">{slotsLabel}</div>
-            </div>
-            <div className="mt-auto">
+              <div className="display-6 fw-bold text-white">3,000 USDT<BscMark /></div>
+            </div>            <div className="mt-auto">
               <button
                 className="btn btn-green btn-lg px-5 w-100"
                 onClick={() => handleBuy('new')}
@@ -199,7 +207,10 @@ export default function ActionTiles() {
       <div className="row justify-content-center mt-5">
         <div className="col-lg-10">
           <div className="card-dark p-4 p-lg-5">
-            <h3 className="h5 text-center mb-4">Validators</h3>
+            <h3 className="h5 text-center mb-4">
+              {rows.length} Validators{' '}
+              <span className="text-white-50 fw-normal">&middot; {slotsLabel} slots available</span>
+            </h3>
             <div className="table-responsive">
               <table className="table table-dark table-borderless align-middle mb-0">
                 <thead>

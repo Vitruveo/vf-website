@@ -53,7 +53,7 @@ export default function ValidatorJoinPage() {
                       href="https://scope.vitruveo.ai/legacy"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-green btn-lg px-5"
+                      className="btn btn-outline-light px-4"
                     >
                       Claim on Scope
                     </a>
@@ -77,14 +77,6 @@ export default function ValidatorJoinPage() {
                     <li className="d-flex mb-3">
                       <Check />
                       <span className="text-muted-custom"><span className="text-white fw-semibold">10 VIBE shares</span></span>
-                    </li>
-                    <li className="d-flex mb-3">
-                      <Check />
-                      <span className="text-muted-custom">Rejoin starting at <span className="text-white fw-semibold">$100</span></span>
-                    </li>
-                    <li className="d-flex mb-3">
-                      <Check />
-                      <span className="text-muted-custom">New for <span className="text-white fw-semibold">$3,000</span></span>
                     </li>
                     <li className="d-flex">
                       <Check />

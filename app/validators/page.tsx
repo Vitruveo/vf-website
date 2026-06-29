@@ -112,7 +112,7 @@ export default function ValidatorsPage() {
                 <div className="card-accent p-4 p-lg-5 text-center">
                   <h3 className="h5 text-green mb-3">Every Seat Strengthens VTRU</h3>
                   <p className="text-white mb-0" style={{ fontSize: '1.2rem', lineHeight: 1.7, maxWidth: '760px', margin: '0 auto' }}>
-                    <strong className="text-green">$50 of every re-join fee</strong> and{' '}
+                    <strong className="text-green">$50 of every rejoin fee</strong> and{' '}
                     <strong className="text-green">$1,500 of every new fee</strong> goes to liquidity,
                     and we <strong className="text-green">burn the LP tokens</strong>, ensuring the
                     liquidity is permanent and strengthening VTRU for everyone who holds it.
