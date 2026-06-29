@@ -2,10 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import dynamic from 'next/dynamic';
+
+// Wallet connect button is only loaded/rendered on the validator app page.
+const ConnectWallet = dynamic(() => import('../web3/ConnectWallet'), { ssr: false });
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  // trailingSlash: true → usePathname() returns "/validators/join/"
+  const showConnect = pathname?.replace(/\/+$/, '') === '/validators/join';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -52,6 +60,11 @@ export default function Header() {
               <a className="nav-link" href="/validators">Validators</a>
             </li>
           </ul>
+          {showConnect && (
+            <div className="ms-md-4 mt-3 mt-md-0">
+              <ConnectWallet />
+            </div>
+          )}
         </div>
       </div>
     </nav>

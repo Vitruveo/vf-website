@@ -34,8 +34,11 @@ export default function ValidatorsPage() {
                 onboarding and&nbsp;success.
               </p>
               <div className="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="/validators/app" className="btn btn-green btn-lg px-5">
+                <a href="/validators/join" className="btn btn-green btn-lg px-5">
                   Become a Validator
+                </a>
+                <a href="#legacy" className="btn btn-outline-light btn-lg px-5">
+                  Legacy Validators
                 </a>
                 <a href="https://network.vitruveo.ai" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-lg px-5">
                   View Live Network
@@ -108,10 +111,11 @@ export default function ValidatorsPage() {
               <div className="col-lg-10">
                 <div className="card-accent p-4 p-lg-5 text-center">
                   <h3 className="h5 text-green mb-3">Every Seat Strengthens VTRU</h3>
-                  <p className="text-white mb-0" style={{ fontSize: '1.2rem', lineHeight: 1.7, maxWidth: '720px', margin: '0 auto' }}>
-                    <strong className="text-green">$50 of every fee</strong> goes directly to
-                    liquidity, and the <strong className="text-green">LP tokens are burned</strong>,
-                    {' '}ensuring the liquidity is permanent and strengthening VTRU for everyone who holds it.
+                  <p className="text-white mb-0" style={{ fontSize: '1.2rem', lineHeight: 1.7, maxWidth: '760px', margin: '0 auto' }}>
+                    <strong className="text-green">$50 of every re-join fee</strong> and{' '}
+                    <strong className="text-green">$1,500 of every new fee</strong> goes to liquidity,
+                    and we <strong className="text-green">burn the LP tokens</strong>, ensuring the
+                    liquidity is permanent and strengthening VTRU for everyone who holds it.
                   </p>
                 </div>
               </div>
@@ -180,7 +184,7 @@ export default function ValidatorsPage() {
 
             {/* CTA */}
             <div className="text-center">
-              <a href="/validators/app" className="btn btn-green btn-lg px-5">
+              <a href="/validators/join" className="btn btn-green btn-lg px-5">
                 Become a Validator
               </a>
             </div>
