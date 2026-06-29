@@ -155,7 +155,7 @@ export default function ActionTiles() {
           <div className="card-dark p-4 p-lg-5 h-100 text-center d-flex flex-column">
             <h3 className="h4 text-green mb-4">Rejoin</h3>
             <div className="mb-5">
-              <div className="small text-white-50">Current Price</div>
+              <div className="small text-white-50">Current Price (Increases $10 w/ each Buy)</div>
               <div className="display-6 fw-bold text-white">{fmtUsdt(rejoinPrice)} USDT<BscMark /></div>
             </div>            <div className="mt-auto">
               <button
