@@ -59,6 +59,9 @@ export default function Header() {
             <li className="nav-item">
               <a className="nav-link" href="/validators">Validators</a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/news">News</a>
+            </li>
           </ul>
           {showConnect && (
             <div className="ms-md-4 mt-3 mt-md-0">

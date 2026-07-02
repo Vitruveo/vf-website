@@ -32,6 +32,11 @@ export default function Hero() {
         <p className="lead text-muted-custom mb-4" style={{ fontSize: '1.35rem' }}>
           An EVM-compatible L1 blockchain built for the AI era.
         </p>
+        <div className="mb-4">
+          <a href="/news" className="btn btn-green btn-lg px-5">
+            Read Our Founding Announcement
+          </a>
+        </div>
         <a href="/#pillars" className="text-muted-custom text-decoration-none">
           ↓
         </a>

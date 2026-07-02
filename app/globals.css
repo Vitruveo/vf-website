@@ -254,6 +254,22 @@ p {
   color: #0a0f0a;
 }
 
+/* Tightly-packed multi-column list (avoids Bootstrap grid row gaps) */
+.achievement-columns {
+  column-count: 1;
+  column-gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .achievement-columns {
+    column-count: 2;
+  }
+}
+
+.achievement-columns > * {
+  break-inside: avoid;
+}
+
 /* Hero section */
 .hero-section {
   min-height: 100vh;

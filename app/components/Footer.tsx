@@ -21,6 +21,9 @@ export default function Footer() {
             <a href="/validators" className="me-4">
               Validators
             </a>
+            <a href="/news" className="me-4">
+              News
+            </a>
             <a href="mailto:info@verticalfoundation.net">
               Contact
             </a>
