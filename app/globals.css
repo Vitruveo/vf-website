@@ -251,6 +251,40 @@ p {
   animation: vfSlotShimmer 3s ease-in-out infinite;
 }
 
+/* Continuously scrolling domain carousel (Pretrend page) */
+.domain-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.domain-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: domainScroll 45s linear infinite;
+}
+
+.domain-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes domainScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.domain-card {
+  width: 210px;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .domain-track {
+    animation: none;
+  }
+}
+
 /* Clickable validator slots: highlight on hover */
 .vf-slot-clickable {
   transition: border-color 0.12s, box-shadow 0.12s, background 0.12s;
