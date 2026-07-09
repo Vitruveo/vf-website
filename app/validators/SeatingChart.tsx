@@ -10,6 +10,7 @@ import {
   useWatchContractEvent,
 } from 'wagmi';
 import { readContract, waitForTransactionReceipt } from '@wagmi/core';
+import { useConnectModal } from '@rainbow-me/rainbowkit';
 import { bsc } from 'wagmi/chains';
 import { erc20Abi, formatUnits, parseUnits, type Abi } from 'viem';
 import { wagmiConfig } from '../web3/wagmi';
@@ -163,7 +164,7 @@ const LegendSwatch = ({ style, className }: { style: React.CSSProperties; classN
 );
 
 export default function SeatingChart() {
-  const { address, isConnected, chainId } = useAccount();
+  const { address, chainId } = useAccount();
   const { switchChainAsync } = useSwitchChain();
   const { writeContractAsync } = useWriteContract();
 
@@ -274,11 +275,14 @@ export default function SeatingChart() {
     }
   }
 
+  const cellClickable = (s: SlotView) =>
+    !busy && s.state === OPEN && (moveMode || !hasNode);
+
   function onCellClick(s: SlotView) {
-    if (busy || s.state !== OPEN) return;
+    if (!cellClickable(s)) return;
     if (moveMode) {
       handleMove(Number(s.slot));
-    } else if (!hasNode && isConnected) {
+    } else {
       setError(null);
       setClaimSlotNum(Number(s.slot));
     }
@@ -287,8 +291,7 @@ export default function SeatingChart() {
   const cellStyle = (s: SlotView): React.CSSProperties => {
     const isOwn =
       !!address && s.state === CLAIMED && s.owner.toLowerCase() === address.toLowerCase();
-    const clickable =
-      !busy && s.state === OPEN && (moveMode || (!hasNode && isConnected));
+    const clickable = cellClickable(s);
     const look =
       s.state === RESERVED
         ? CELL.reserved
@@ -346,10 +349,14 @@ export default function SeatingChart() {
       </div>
 
       {/* Pricing (read from the contract) */}
-      <p className="text-center text-white-50 small mb-4">
-        Basic {fmtUsdt(prices.basic)} USDT &middot; Super {fmtUsdt(prices.super)} USDT &middot; Hyper{' '}
-        {fmtUsdt(prices.hyper)} USDT (support included) &middot; Installation support +
-        {fmtUsdt(prices.install)} USDT &middot; Minimum payment {fmtUsdt(minPayment)} USDT
+      <p className="text-center mb-4" style={{ fontSize: '1.05rem' }}>
+        <span className="text-white fw-semibold">Basic <span className="text-green">{fmtUsdt(prices.basic)} USDT</span></span>
+        <span className="text-white-50"> &middot; </span>
+        <span className="text-white fw-semibold">Super <span className="text-green">{fmtUsdt(prices.super)} USDT</span></span>
+        <span className="text-white-50"> &middot; </span>
+        <span className="text-white fw-semibold">Hyper <span className="text-green">{fmtUsdt(prices.hyper)} USDT</span></span>
+        <span className="text-white-50"> (support included) &middot; Installation support +
+        {fmtUsdt(prices.install)} USDT &middot; Minimum payment {fmtUsdt(minPayment)} USDT</span>
       </p>
 
       <div className="row justify-content-center">
@@ -399,7 +406,14 @@ export default function SeatingChart() {
                 {slots.map((s) => (
                   <div
                     key={Number(s.slot)}
-                    className={s.state === CLAIMED && s.active ? 'vf-slot-active' : undefined}
+                    className={
+                      [
+                        s.state === CLAIMED && s.active ? 'vf-slot-active' : '',
+                        cellClickable(s) ? 'vf-slot-clickable' : '',
+                      ]
+                        .filter(Boolean)
+                        .join(' ') || undefined
+                    }
                     style={cellStyle(s)}
                     title={cellTitle(s)}
                     onClick={() => onCellClick(s)}
@@ -421,12 +435,7 @@ export default function SeatingChart() {
               </div>
             )}
 
-            {!isConnected && (
-              <p className="text-center text-white-50 small mt-3 mb-0">
-                Connect your wallet (top right) on BNB Smart Chain to claim a slot.
-              </p>
-            )}
-            {isConnected && !hasNode && (
+            {!hasNode && (
               <p className="text-center text-white-50 small mt-3 mb-0">
                 Click an open slot to claim it. One node per wallet.
               </p>
@@ -457,7 +466,7 @@ export default function SeatingChart() {
       )}
 
       {/* Claim modal */}
-      {claimSlotNum !== null && (
+      {claimSlotNum !== null && !hasNode && (
         <ClaimModal
           slot={claimSlotNum}
           minPayment={minPayment}
@@ -643,6 +652,8 @@ function ClaimModal({
   write: WriteFn;
   baseArgs: BaseArgs;
 }) {
+  const { isConnected } = useAccount();
+  const { openConnectModal } = useConnectModal();
   const [nodeType, setNodeType] = useState<NodeTypeId>(0);
   const [support, setSupport] = useState(false);
   const [paymentStr, setPaymentStr] = useState('');
@@ -811,10 +822,10 @@ function ClaimModal({
 
         <button
           className="btn btn-green btn-lg w-100"
-          onClick={handleClaim}
-          disabled={busy || !paymentValid}
+          onClick={isConnected ? handleClaim : openConnectModal}
+          disabled={busy || (isConnected && !paymentValid)}
         >
-          {busy ? 'Processing…' : 'Approve & Claim'}
+          {busy ? 'Processing…' : isConnected ? 'Approve & Claim' : 'Connect Wallet on BSC'}
         </button>
 
         {busy && status && (
