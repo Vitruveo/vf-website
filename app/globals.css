@@ -239,6 +239,29 @@ p {
   animation: vfDash 5s linear infinite;
 }
 
+/* Animated sheen for active validator slots */
+@keyframes vfSlotShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.vf-slot-active {
+  background-size: 220% 220%;
+  animation: vfSlotShimmer 3s ease-in-out infinite;
+}
+
+/* Node calculator table: keep first/last columns off the box edges */
+.calc-table th:first-child,
+.calc-table td:first-child {
+  padding-left: 1rem;
+}
+
+.calc-table th:last-child,
+.calc-table td:last-child {
+  padding-right: 1rem;
+}
+
 /* Prominent CTA button */
 .btn-green {
   background-color: var(--vf-green-light);

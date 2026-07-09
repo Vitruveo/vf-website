@@ -12,8 +12,8 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  // trailingSlash: true → usePathname() returns "/validators/join/"
-  const showConnect = pathname?.replace(/\/+$/, '') === '/validators/join';
+  // trailingSlash: true → usePathname() returns "/validators/"
+  const showConnect = pathname?.replace(/\/+$/, '') === '/validators';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
