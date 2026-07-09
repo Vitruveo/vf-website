@@ -6,15 +6,15 @@ import SeatingChart from './SeatingChart';
 import NodeCalculator from './NodeCalculator';
 
 const TABS = [
-  { key: 'benefits', label: 'Node Benefits' },
   { key: 'rejoin', label: 'Node Rejoining' },
   { key: 'calc', label: 'Node Calculator' },
+  { key: 'benefits', label: 'Node Benefits' },
 ] as const;
 
 type TabKey = (typeof TABS)[number]['key'];
 
 export default function ValidatorTabs() {
-  const [tab, setTab] = useState<TabKey>('benefits');
+  const [tab, setTab] = useState<TabKey>('rejoin');
 
   return (
     <div>
