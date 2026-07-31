@@ -18,9 +18,6 @@ export default function Footer() {
             <a href="/pretrend" className="me-4">
               Pretrend
             </a>
-            <a href="/validators" className="me-4">
-              Validators
-            </a>
             <a href="/news" className="me-4">
               News
             </a>

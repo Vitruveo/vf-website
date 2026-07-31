@@ -22,6 +22,9 @@ const VALIDATORS_ABI = contracts.abi.Validators as unknown as Abi;
 const USDT = '0x55d398326f99059fF775485246999027B3197955' as `0x${string}`;
 const USDT_DECIMALS = 18;
 
+// Claim deadline has passed — flip to false to reopen claiming.
+const CLAIMS_CLOSED = true;
+
 // Contract enums.
 const OPEN = 0;
 const RESERVED = 1;
@@ -276,7 +279,7 @@ export default function SeatingChart() {
   }
 
   const cellClickable = (s: SlotView) =>
-    !busy && s.state === OPEN && (moveMode || !hasNode);
+    !busy && s.state === OPEN && (moveMode || (!hasNode && !CLAIMS_CLOSED));
 
   function onCellClick(s: SlotView) {
     if (!cellClickable(s)) return;
@@ -437,7 +440,9 @@ export default function SeatingChart() {
 
             {!hasNode && (
               <p className="text-center text-white-50 small mt-3 mb-0">
-                Click an open slot to claim it. One node per wallet.
+                {CLAIMS_CLOSED
+                  ? 'Claiming is closed.'
+                  : 'Click an open slot to claim it. One node per wallet.'}
               </p>
             )}
           </div>
@@ -823,9 +828,9 @@ function ClaimModal({
         <button
           className="btn btn-green btn-lg w-100"
           onClick={isConnected ? handleClaim : openConnectModal}
-          disabled={busy || (isConnected && !paymentValid)}
+          disabled={CLAIMS_CLOSED || busy || (isConnected && !paymentValid)}
         >
-          {busy ? 'Processing…' : isConnected ? 'Approve & Claim' : 'Connect Wallet on BSC'}
+          {CLAIMS_CLOSED ? 'Claiming closed' : busy ? 'Processing…' : isConnected ? 'Approve & Claim' : 'Connect Wallet on BSC'}
         </button>
 
         {busy && status && (
