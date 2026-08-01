@@ -23,7 +23,7 @@ const USDT = '0x55d398326f99059fF775485246999027B3197955' as `0x${string}`;
 const USDT_DECIMALS = 18;
 
 // Claim deadline has passed — flip to false to reopen claiming.
-const CLAIMS_CLOSED = true;
+const CLAIMS_CLOSED = false;
 
 // Contract enums.
 const OPEN = 0;
