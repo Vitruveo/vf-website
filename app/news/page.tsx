@@ -78,7 +78,7 @@ const announcements = [
         category: 'Validators',
         items: [
           { text: 'Redesigned the Validators program, reducing the set from 380 to 100' },
-          { text: 'Developed a rewards program for all validators', href: '/validators' },
+          { text: 'Developed a rewards program for all validators' },
           { text: 'Built a simple, low-cost path to onboard 100 validators, rewarding early commitment' },
           { text: 'Reduced the protocol footprint so validators can run on an AWS t3.small' },
           { text: 'Created a five-year reimbursement program — 1 VTRU per block mined' },

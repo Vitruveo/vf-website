@@ -603,11 +603,6 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="text-center">
-              <a href="/validators" className="btn btn-outline-light btn-lg px-5">
-                Become a Validator &rarr;
-              </a>
-            </div>
           </div>
         </section>
 
