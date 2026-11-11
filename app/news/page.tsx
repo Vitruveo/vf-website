@@ -10,9 +10,56 @@ export const metadata: Metadata = {
 
 type Item = { text: string; href?: string };
 
-const announcements = [
+type Announcement = {
+  date: string;
+  title: string;
+  image?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  caption?: string;
+  body: string[];
+  facts?: { label: string; value: string }[];
+  links?: { label: string; href: string }[];
+  footnote?: string;
+  achievements?: { category: string; items: Item[] }[];
+};
+
+const announcements: Announcement[] = [
+  {
+    date: 'November 11, 2026',
+    title: 'Pretrend Is Live',
+    image: '/news/pretrend-launch.jpg',
+    imageAlt: 'Pretrend Pump.fun 5-Minute Trend market showing live volume chart and Moon, Bull, Flat, Bear, and Crash outcomes',
+    imageWidth: 1400,
+    imageHeight: 1346,
+    caption: 'The Pump.fun 5-Minute Trend market on Pretrend.',
+    body: [
+      'Pretrend, the prediction market built on Vitruveo, has launched. The TrendPulse oracle is on, the swap is open, and the first market is warming up.',
+      'TrendPulse is now streaming a live Pump.fun volume feed on-chain. That feed is what Pretrend’s first market resolves on: the Pump.fun 5-Minute Trend. Every five minutes it asks one question — where is Pump.fun volume heading? Participants call it across five outcomes: Moon, Bull, Flat, Bear, or Crash.',
+      'All bets and payouts on Pretrend are denominated in VUSD, a fully reserved stablecoin on Vitruveo backed 1:1 by bridged USDT. The swap from USDT on BNB Smart Chain to VUSD on Vitruveo is open now directly on Pretrend: one confirmation on BSC and the bridge delivers VUSD. Cashing out reverses the path, from VUSD on Vitruveo back to USDT on BSC. For now, VUSD moves only through Pretrend markets and the swap; it cannot be sent wallet-to-wallet.',
+      'Markets are pari-mutuel. Winners get their stake back plus the entire pool from non-winning bets, split by units held. Units are cheaper early in the round, so early calls earn a larger share. If there are no winners, or everyone picks the same outcome, stakes are refunded.',
+      'The TrendPulse feed, the Pump.fun 5-minute market, VUSD, and the swap are live today. Betting opens within 24 hours.',
+    ],
+    facts: [
+      { label: 'Minimum bet', value: '0.10 VUSD (higher for long-duration markets)' },
+      { label: 'Betting fee', value: '0.90 VUSD or 2%, whichever is higher' },
+      { label: 'Fee on winnings', value: 'None' },
+      { label: 'Bridge fee (USDT to VUSD)', value: '1%, whole USDT amounts, BNB for gas' },
+      { label: 'Cash out (VUSD to USDT)', value: 'Whole USDT amounts, VTRU for gas' },
+      { label: 'VUSD contract', value: '0xA173E3B4e3cDEBa92C789F1E764A05f0Be4a6652' },
+      { label: 'USDT bridge (BSC + Vitruveo)', value: '0xB5D7314F2042A922A6EFe9a646a216cfD59dE6AE' },
+    ],
+    links: [
+      { label: 'Visit Pretrend', href: 'https://pretrend.ai' },
+      { label: 'Pump.fun 5-Minute Market', href: 'https://pretrend.ai/markets/pumpfun-5' },
+      { label: 'Swap USDT to VUSD', href: 'https://pretrend.ai/swap' },
+    ],
+    footnote: 'Betting is not available in the US, Cuba, Iran, North Korea, Syria, Russia, or Belarus, or where location cannot be determined. Not financial advice. Prediction markets carry risk; only bet what you can afford to lose.',
+  },
   {
     date: 'July 1, 2026',
+    imageAlt: 'Kintsugi — pottery repaired with gold',
     title: 'Vertical Foundation Established to Steward Vitruveo',
     image: '/kintsugi.avif',
     caption: '“Timeless Magic,” 2023. Taisho era (1912–1926) black Raku ware, urushi lacquer, 24K gold, and resin. Photo by Naoko Fukumaru.',
@@ -45,7 +92,7 @@ const announcements = [
       {
         category: 'Ecosystem',
         items: [
-          { text: 'Deprecated all other projects to focus on one: Pretrend', href: '/pretrend' },
+          { text: 'Deprecated all other projects to focus on one: Pretrend', href: 'https://pretrend.ai' },
           { text: 'Developed a migration strategy for VTRO, VERSE, and Vortex tokens to Pretrend' },
           { text: 'Created a new Discord community server' },
           { text: 'Set up multi-sig wallets with 3-of-3 signers for all important wallets' },
@@ -71,7 +118,7 @@ const announcements = [
           { text: 'Developed Legacy, an application for eligible token holders and validators' },
           { text: 'Published the HOST protocol whitepaper', href: 'https://kalyani.com/' },
           { text: 'Published the Pretrend whitepaper', href: 'https://www.pretrend.ai/' },
-          { text: 'Developed the architecture for Pretrend', href: '/pretrend' },
+          { text: 'Developed the architecture for Pretrend', href: 'https://pretrend.ai' },
         ] as Item[],
       },
       {
@@ -82,7 +129,7 @@ const announcements = [
           { text: 'Built a simple, low-cost path to onboard 100 validators, rewarding early commitment' },
           { text: 'Reduced the protocol footprint so validators can run on an AWS t3.small' },
           { text: 'Created a five-year reimbursement program — 1 VTRU per block mined' },
-        ] as Item[],
+        ],
       },
     ],
   },
@@ -140,9 +187,9 @@ export default function NewsPage() {
                       <figure className="mb-4">
                         <Image
                           src={a.image}
-                          alt="Kintsugi — pottery repaired with gold"
-                          width={1200}
-                          height={600}
+                          alt={a.imageAlt ?? ''}
+                          width={a.imageWidth ?? 1200}
+                          height={a.imageHeight ?? 600}
                           className="w-100 rounded"
                           style={{ height: 'auto' }}
                         />
@@ -154,6 +201,37 @@ export default function NewsPage() {
                     {a.body.map((p, i) => (
                       <p key={i} className="text-muted-custom mb-3">{p}</p>
                     ))}
+
+                    {a.facts && (
+                      <dl className="row small mt-4 mb-0" style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1rem' }}>
+                        {a.facts.map((f) => (
+                          <div key={f.label} className="col-12 d-flex flex-wrap py-2" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                            <dt className="text-green fw-semibold me-3" style={{ minWidth: '220px' }}>{f.label}</dt>
+                            <dd className="text-muted-custom mb-0" style={{ wordBreak: 'break-all' }}>{f.value}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    )}
+
+                    {a.links && (
+                      <div className="d-flex flex-wrap gap-2 mt-4">
+                        {a.links.map((l, i) => (
+                          <a
+                            key={l.href}
+                            href={l.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={i === 0 ? 'btn btn-green px-4' : 'btn btn-outline-light px-4'}
+                          >
+                            {l.label} ↗
+                          </a>
+                        ))}
+                      </div>
+                    )}
+
+                    {a.footnote && (
+                      <p className="text-white-50 small fst-italic mt-4 mb-0">{a.footnote}</p>
+                    )}
 
                     {a.achievements && (
                       <div className="mt-5 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>

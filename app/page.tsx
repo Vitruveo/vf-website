@@ -418,8 +418,8 @@ export default function Home() {
             </div>
 
             <div className="text-center">
-              <a href="/pretrend" className="btn btn-outline-light btn-lg px-5">
-                Explore Pretrend &rarr;
+              <a href="https://pretrend.ai" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-lg px-5">
+                Visit Pretrend <ExternalLinkIcon />
               </a>
             </div>
           </div>
