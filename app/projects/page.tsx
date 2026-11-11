@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 
 export const metadata: Metadata = {
   title: "Projects | Vertical Foundation",
-  description: "Projects running on Vitruveo: Pretrend, Multisig, VTRU Bridge, USDT Bridge, VNS, VIBE, the Vitruveo Explorer, and VStats, with Coinveyor and AIGIS coming soon.",
+  description: "Projects running on Vitruveo: Pretrend, Multisig, VTRU Bridge, USDT Bridge, VNS, VIBE, the Vitruveo Explorer, and VStats, with Coinveyor, AIGIS, Quadplot, and Instagraphic coming soon.",
 };
 
 type Accent = CSSProperties & { '--pj-a': string; '--pj-b': string };
@@ -217,7 +217,32 @@ const COMING_SOON: Project[] = [
     logo: <AigisMark size={48} />,
     mark: <AigisMark size={56} />,
     blurb: 'Turn documents, spreadsheets, images, and news into animated time-series maps.',
-    features: ['Finds every event with a place and a time', 'Spots bursts, hotspots, outliers, and silences', 'Ask the map questions in plain language'],
+    features: ['Finds every event with a place and a time', 'Spots bursts, hotspots, outliers, and silences', 'Ask the map questions in plain language', 'Publish to Vitruveo'],
+  },
+  {
+    name: 'Quadplot',
+    tag: 'Read the room',
+    href: 'https://www.quadplot.com',
+    host: 'quadplot.com',
+    a: '#007fff',
+    b: '#ea580c',
+    wordmark: true,
+    logo: <Image src="/projects/quadplot-logo.svg" alt="Quadplot" width={205} height={64} className="pj-logo-wide" />,
+    mark: <Image src="/projects/quadplot-mark.svg" alt="" width={56} height={56} />,
+    blurb: 'Four options on one square. Everyone drops an emoji. The heat map shows the room.',
+    features: ['Find where a group stands, no survey needed', 'No accounts, names, or emails', 'Heat map updates live as people answer', 'Publish to Vitruveo'],
+  },
+  {
+    name: 'Instagraphic',
+    tag: 'Branded graphics, fast',
+    href: 'https://instagraphic.app',
+    host: 'instagraphic.app',
+    a: '#ffc107',
+    b: '#0d6efd',
+    logo: <Image src="/projects/instagraphic-mark.svg" alt="" width={48} height={48} className="flex-shrink-0" />,
+    mark: <Image src="/projects/instagraphic-mark.svg" alt="" width={52} height={52} />,
+    blurb: 'Turn your text into an animated graphic in seconds.',
+    features: ['Pick a layout, apply your colors and fonts', 'Type your content and go', 'Download as animated SVG, PNG, or GIF', 'Content Authenticity Initiative certificate on Vitruveo'],
   },
 ];
 
@@ -225,7 +250,7 @@ const MARKS = [...ECOSYSTEM.filter((p) => p.name !== 'USDT Bridge'), ...COMING_S
 
 function ProjectCard({ p, soon = false }: { p: Project; soon?: boolean }) {
   return (
-    <a href={p.href} target="_blank" rel="noopener noreferrer" className="pj-card" style={accent(p.a, p.b)}>
+    <a href={p.href} target="_blank" rel="noopener noreferrer" className={soon ? 'pj-card pj-card-soon' : 'pj-card'} style={accent(p.a, p.b)}>
       {soon && <span className="pj-ribbon">Coming soon</span>}
       <div className="pj-card-logo"><ProjectLogo p={p} /></div>
       <div className="pj-card-tag">{p.tag}</div>
@@ -383,7 +408,7 @@ export default function ProjectsPage() {
 
             <div className="row g-4 justify-content-center">
               {COMING_SOON.map((p) => (
-                <div key={p.name} className="col-lg-5 col-md-6">
+                <div key={p.name} className="col-xl-3 col-md-6">
                   <ProjectCard p={p} soon />
                 </div>
               ))}

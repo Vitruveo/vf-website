@@ -945,14 +945,14 @@ a:hover .pj-arrow {
 
 .pj-ribbon {
   position: absolute;
-  top: 26px;
-  right: -46px;
-  width: 190px;
-  padding: 0.35rem 0;
+  top: 20px;
+  right: -42px;
+  width: 160px;
+  padding: 0.25rem 0;
   transform: rotate(45deg);
   background: linear-gradient(90deg, var(--pj-a), var(--pj-b));
   color: #0a0f0a;
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-align: center;
@@ -975,4 +975,19 @@ a:hover .pj-arrow {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
+}
+
+.pj-card-soon .pj-card-logo {
+  padding-right: 52px;
+}
+
+.pj-card-soon .pj-logo-combo {
+  font-size: 1.6rem;
+  gap: 0.6rem;
+}
+
+.pj-card-soon .pj-logo-combo img,
+.pj-card-soon .pj-logo-combo svg {
+  width: 40px;
+  height: 40px;
 }
