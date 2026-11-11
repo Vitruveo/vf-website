@@ -387,6 +387,23 @@ export default function Home() {
               </p>
             </div>
 
+            <div className="row justify-content-center mb-5">
+              <div className="col-lg-10">
+                <div className="vf-video-frame">
+                  <video
+                    src="/videos/pretrend-intro.mp4"
+                    poster="/videos/pretrend-intro.jpg"
+                    controls
+                    playsInline
+                    preload="none"
+                    width={1280}
+                    height={720}
+                    aria-label="Pretrend introduction video"
+                  />
+                </div>
+              </div>
+            </div>
+
             <div className="row mb-5">
               <div className="col-lg-6 mb-4 mb-lg-0">
                 <h3 className="h4 text-green mb-4">Beyond Binary Markets</h3>
