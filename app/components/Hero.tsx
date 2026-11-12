@@ -33,8 +33,8 @@ export default function Hero() {
           An EVM-compatible L1 blockchain built for the AI era.
         </p>
         <div className="mb-4">
-          <a href="/news" className="btn btn-green btn-lg px-5">
-            Read Our Founding Announcement
+          <a href="https://www.vitruveo.ai" target="_blank" rel="noopener noreferrer" className="btn btn-green btn-lg px-5">
+            Visit Vitruveo Website
           </a>
         </div>
         <a href="/#pillars" className="text-muted-custom text-decoration-none">
