@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/projects", "destination": "https://www.vitruveo.ai/ecosystem", "permanent": true },
+    { "source": "/projects/:path*", "destination": "https://www.vitruveo.ai/ecosystem", "permanent": true }
+  ]
+}
