@@ -54,9 +54,6 @@ export default function Header() {
               <a className="nav-link" href="/">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/projects">Projects</a>
-            </li>
-            <li className="nav-item">
               <a className="nav-link" href="/news">News</a>
             </li>
           </ul>

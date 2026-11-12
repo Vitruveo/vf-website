@@ -15,9 +15,6 @@ export default function Footer() {
             />
           </div>
           <div className="col-md-6 text-center text-md-end">
-            <a href="/projects" className="me-4">
-              Projects
-            </a>
             <a href="/news" className="me-4">
               News
             </a>
